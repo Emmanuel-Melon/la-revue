@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
+/**
+ * components
+ */
+import Filter from './Components/Filter'
+import ListRestaurants from './Components/ListRestaurants'
+import Navabar from './Components/Navbar'
+import Map from './Components/Map'
+
+/**
+ * services
+ */
+import Geolocation from './Services/Geolocation'
+
+/**
+ * utils
+ */
 import API from './Utils/api'
 
 class App extends Component {
-
   componentDidMount () {
     this.getReviews()
   }
@@ -21,24 +35,27 @@ class App extends Component {
   }
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Navabar />
+        <main className='wrapper'>
+          <section className='map'>
+            <Map
+              isMarkerShown
+              googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2IDnv8a9yaw4XPRSO4JgKYMuyqWhsEs'
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
+          </section>
+          <section className='sidebar'>
+            <h1 className='header'>Nearby Restaurants</h1>
+            <Filter />
+            <ListRestaurants />
+          </section>
+        </main>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

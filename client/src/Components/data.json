@@ -1,0 +1,941 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CrQCIQEAAFY-QkMZXbbYa3u7EIh77TwucOMm7VLQ5qB3RsdnVmukpi5ngrORg5OBFyIaTSd7Gnyfz_IArR2zXSJvf47gEVvloq1MKhDF4N5RWs7a5ukNpQIq-mvUYUc6qBbL6hJ51xaPt0Iy7C9js_7rX1u_yQ3uuQ9ZTchBz0ndWsQ8_f4ZN3N5hzh8n_-8QxmoaAN3gQTVe_VH-Ggsgqyr7M0hJHeNNKHcj-VFTlUmbW9xweTHzf-cXeX0rwML5tU0GcChiZiB-njLXKkrY-QMM0IrbrnjHa1ghneFbUJbFLWJhHOj8ILYi2R2hEyOkMh4XFS2g1qoJ_hFYdbWyGVEUZDkundI9FdUi6y7NWrh42yh3dJtbM1Rs6xZm0ugxZ98MTcDo29Oxa5FJrhjKiMDzqU5P3sSEGsrv_Hqwz_RNbWc1gGUY44aFMvzntzlpMghmVN9XZ7Y7gm5rF-4",
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3207221,
+          "lng": 32.5901075
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3219359802915021,
+            "lng": 32.5913496802915
+          },
+          "southwest": {
+            "lat": 0.319238019708498,
+            "lng": 32.5886517197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9b43b84e2701e851a1562549531a5840b326834b",
+      "name": "Silver City Spur",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105045573081866379748/photos\">Manuel G</a>"
+          ],
+          "photo_reference": "CmRaAAAAxUQTvE-dQuoJNkWjVHcmmOAVdBzUW3Rja9sJXq6HUIWTgl7ZKM0kCkXTDvLR-oB7UEqXagex_NlbA05ZwECePlRPHAwi-NUXYocdqYhBL8kSumMdzMUaqHJIGSt3H7nEEhCrl_fGlmkKSkVhjMs-IPViGhTJMqQiM6Dk1_WGhaeSVnJ7Xo0oCw",
+          "width": 3984
+        }
+      ],
+      "place_id": "ChIJJ731R4S7fRcRA32cYXpccqc",
+      "plus_code": {
+        "compound_code": "8HCR+72 Kampala, Uganda",
+        "global_code": "6GGJ8HCR+72"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJJ731R4S7fRcRA32cYXpccqc",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 213,
+      "vicinity": "Garden City Shopping Centre, Yusuf Lule Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3181999,
+          "lng": 32.5940854
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.319645030291502,
+            "lng": 32.5955134302915
+          },
+          "southwest": {
+            "lat": 0.3169470697084979,
+            "lng": 32.5928154697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f24b10fe173727bdd829989302b42d53865ecc58",
+      "name": "VITAMIN CAFE",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 422,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110934363126485497401/photos\">VITAMIN CAFE</a>"
+          ],
+          "photo_reference": "CmRaAAAAWeVbhalYe7Vm6f79KiF-EK3MwLhemt34w1zmjj93xEI9TQRxrXzfgzpKqti_esS5uP2DfAUmgceoJPD6HaTlmcbPMtEaBmQ213F10Pe7-GwQ_0P32pBuCQYzIJKxNkJ-EhAnCAsFYZ4rd1G6ECv2ah-aGhRK2-Xc6asnCeEiSFYf-J-5GbZuEQ",
+          "width": 750
+        }
+      ],
+      "place_id": "ChIJZ7uugYi7fRcRN_cVErbyaOo",
+      "plus_code": {
+        "compound_code": "8H9V+7J Kampala, Uganda",
+        "global_code": "6GGJ8H9V+7J"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJZ7uugYi7fRcRN_cVErbyaOo",
+      "scope": "GOOGLE",
+      "types": [
+        "night_club",
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 290,
+      "vicinity": "Centenary Park, Opposite Electoral Commission Next to Africana Hotel, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.318562,
+          "lng": 32.593164
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.319937630291502,
+            "lng": 32.5944927302915
+          },
+          "southwest": {
+            "lat": 0.3172396697084979,
+            "lng": 32.59179476970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "0ce10f4b92e651b5c501411c4e26c14ab8f68cd4",
+      "name": "Kyoto Turkish Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112769267629066178732/photos\">hasan portakal</a>"
+          ],
+          "photo_reference": "CmRaAAAAWQTidJp79Qf6qPE1pfggqoEGXyxqcwMDyuTKWcetF7BKecIN4VxNvPnLWyeqKnVSaP4nX6UjcjzHLPprAWc59o724pwRjw9iM2xyobIO6mVxm4dYyBNdfWWHc6R03wceEhCAdRy2QFy2kweEkGhBcvq2GhTA3LTFhWqJaNJiNtJGR0wln8wBdg",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJswQUJYa7fRcR8Nnh27RIIKQ",
+      "plus_code": {
+        "compound_code": "8H9V+C7 Kampala, Uganda",
+        "global_code": "6GGJ8H9V+C7"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJswQUJYa7fRcR8Nnh27RIIKQ",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 260,
+      "vicinity": "Centenary Park"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.329408,
+          "lng": 32.590698
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.330637980291502,
+            "lng": 32.5920103302915
+          },
+          "southwest": {
+            "lat": 0.3279400197084979,
+            "lng": 32.5893123697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5fed0865594f814b75275f4195a4807a0fcb380e",
+      "name": "Pardis. Middle Eastern Cuisine",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113648536818017764525/photos\">Pardis. Middle Eastern Cuisine</a>"
+          ],
+          "photo_reference": "CmRaAAAAy_p9gpWQPj23lGlQMBLmzmNvDhWiKOiX4dnjnSMDvVfBGptc_EBJdwva9t2gx0GcMwsDpvEKOBmqPCJxQi3Dfpky38gvdZoa1yjGZYImJ1sRDPyNwc5B6SUFYu3RieNxEhBbnBszyXRVZn9GZkjhSZP4GhRAyk588XnH9uYWBmA0qalL-EOWkA",
+          "width": 960
+        }
+      ],
+      "place_id": "ChIJ5Uv3_Zi7fRcRPaGTDwHb7Wk",
+      "plus_code": {
+        "compound_code": "8HHR+Q7 Kampala, Uganda",
+        "global_code": "6GGJ8HHR+Q7"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJ5Uv3_Zi7fRcRPaGTDwHb7Wk",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 408,
+      "vicinity": "Plot 12 Phillip road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3206993,
+          "lng": 32.5993216
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3219738302915021,
+            "lng": 32.6007286802915
+          },
+          "southwest": {
+            "lat": 0.319275869708498,
+            "lng": 32.5980307197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "da28583d113222d7fe32c971afb7c4f51a924e28",
+      "name": "Jua Kali",
+      "place_id": "ChIJtewzoI67fRcRo9zbRNnatqs",
+      "plus_code": {
+        "compound_code": "8HCX+7P Kampala, Uganda",
+        "global_code": "6GGJ8HCX+7P"
+      },
+      "rating": 2.3,
+      "reference": "ChIJtewzoI67fRcRo9zbRNnatqs",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 7,
+      "vicinity": "First Street, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3208468,
+          "lng": 32.5901645
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.322151630291502,
+            "lng": 32.5913819802915
+          },
+          "southwest": {
+            "lat": 0.3194536697084979,
+            "lng": 32.58868401970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "b72e4405fa10209ce3e46cf3153087ee0efcecdc",
+      "name": "Bamboo Terrace",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJodC8R4S7fRcRl_ljEQv2rb4",
+      "plus_code": {
+        "compound_code": "8HCR+83 Kampala, Uganda",
+        "global_code": "6GGJ8HCR+83"
+      },
+      "rating": 4.2,
+      "reference": "ChIJodC8R4S7fRcRl_ljEQv2rb4",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 6,
+      "vicinity": "Yusuf Lule Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.326461,
+          "lng": 32.589993
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3277443302915021,
+            "lng": 32.5913230802915
+          },
+          "southwest": {
+            "lat": 0.3250463697084979,
+            "lng": 32.5886251197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "45d9053016ee662360b2f6067cdcfcab538ba217",
+      "name": "Tamarai Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103793294931442366855/photos\">Tamarai Restaurant</a>"
+          ],
+          "photo_reference": "CmRaAAAArRyiKeVzpc9RZMN5OPlSkqmb-1t12wVRMpKR7ShJXEV7cwifhtTHMgTBi8ZOgXBt9lhPa_lwFKSfMi-TwJMcs2erloVrdxiUYu6MxY_0_oCGTBqbazUJEZYCeR1A8taxEhA8IEKVJ-00ymH0c-D0Yat2GhQRS5UokNCIM9Je61k8tQo-wnb8aA",
+          "width": 5184
+        }
+      ],
+      "place_id": "ChIJr3uksJu7fRcR6IsVg7DmEjU",
+      "plus_code": {
+        "compound_code": "8HGQ+HX Kampala, Uganda",
+        "global_code": "6GGJ8HGQ+HX"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJr3uksJu7fRcR6IsVg7DmEjU",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 767,
+      "vicinity": "14 Lower Kololo Terrace, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3243148999999999,
+          "lng": 32.6045036
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.325946030291502,
+            "lng": 32.60576208029151
+          },
+          "southwest": {
+            "lat": 0.3232480697084979,
+            "lng": 32.60306411970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "be5c0030818b2a0c2fbc6ee7c1a2e18e3926bfc7",
+      "name": "Quatresyte Concept",
+      "place_id": "ChIJKbdhsJK7fRcR9U9KB9XNnIM",
+      "plus_code": {
+        "compound_code": "8JF3+PR Kampala, Uganda",
+        "global_code": "6GGJ8JF3+PR"
+      },
+      "rating": 4,
+      "reference": "ChIJKbdhsJK7fRcR9U9KB9XNnIM",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1,
+      "vicinity": "7, Oluwamorokun Street, Off Post Office Road, Mushin Kampala Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3282257,
+          "lng": 32.6043401
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.329529630291502,
+            "lng": 32.6056469802915
+          },
+          "southwest": {
+            "lat": 0.3268316697084979,
+            "lng": 32.6029490197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9553cc23cb503e510f567684346175f82cd57df0",
+      "name": "Kati Kati Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111139650388671858975/photos\">JAMES OCIRA</a>"
+          ],
+          "photo_reference": "CmRaAAAAR6buiWlu6ikWrvALNvmTFKUQC16hXHyT3sFSxky-Vjj1cSNiUlRb47u9GKDKwZ-eQz1JsqLWA3yPE7Vfh1W7AkI71B4ux1xZD-3gnJTU3zQX49abZkSnESLXxdM0NipoEhB0RsHCDIlrHCZfmy4hqgeAGhSxp6d2qEefF_Hub2EPepSgVnWVBQ",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJNyW1sJS7fRcRV1bqyGSB-yA",
+      "plus_code": {
+        "compound_code": "8JH3+7P Kampala, Uganda",
+        "global_code": "6GGJ8JH3+7P"
+      },
+      "price_level": 2,
+      "rating": 3.9,
+      "reference": "ChIJNyW1sJS7fRcRV1bqyGSB-yA",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1033,
+      "vicinity": "Lugogo By-Pass, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3238375000000001,
+          "lng": 32.60508840000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3253865302915021,
+            "lng": 32.60668478029149
+          },
+          "southwest": {
+            "lat": 0.322688569708498,
+            "lng": 32.6039868197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6d7f0a7554eeac728b95ffed440dcd2a206585cb",
+      "name": "Green wich motel, bar and restuarant",
+      "place_id": "ChIJJf0lq5K7fRcRyOIbZr67VcQ",
+      "plus_code": {
+        "compound_code": "8JF4+G2 Kampala, Uganda",
+        "global_code": "6GGJ8JF4+G2"
+      },
+      "rating": 5,
+      "reference": "ChIJJf0lq5K7fRcRyOIbZr67VcQ",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1,
+      "vicinity": "Kauga, Mukono mainstreet Fourth Street, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3270241,
+          "lng": 32.60441959999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.328469880291502,
+            "lng": 32.60586218029149
+          },
+          "southwest": {
+            "lat": 0.3257719197084979,
+            "lng": 32.6031642197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "8222c4bb0ddcb4790ca7ac361be460658d35fe9c",
+      "name": "Java House - Lugogo",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109421015104368505444/photos\">Jerry Etiang</a>"
+          ],
+          "photo_reference": "CmRaAAAAJ7c8dov60PxrbzpRdl3eYYUZ5Ohmn9G7oW8HA_3Hp3x0xTWWNBvllhakEvSg3st2QJI3pTHb1vb67meDjs4DTK3vb9dz7ve0EjGZR00HiUdXL3VMFjIR--OIG5mfDRz3EhDyfR411CcwUfECmet6PWlpGhS8S34P0pM6Iu5u7kINFOrXNW1ssA",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJo-e2SJO7fRcRtFtTkn7Pzxs",
+      "plus_code": {
+        "compound_code": "8JG3+RQ Kampala, Uganda",
+        "global_code": "6GGJ8JG3+RQ"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJo-e2SJO7fRcRtFtTkn7Pzxs",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 726,
+      "vicinity": "Lugogo By-Pass, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3299501,
+          "lng": 32.5901766
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.331271930291502,
+            "lng": 32.5914757802915
+          },
+          "southwest": {
+            "lat": 0.3285739697084979,
+            "lng": 32.5887778197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c259f1b9378aa27638e1e6795d4718e608e2a858",
+      "name": "Miso Garden",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115152573138838119690/photos\">Jinkyung Kim</a>"
+          ],
+          "photo_reference": "CmRaAAAA7A6JK3v7uohDg0QwKgQ7vU7UcSSrTFsoq4u8TpCCOCmBhxZdtRtmdCtvrpAkwWabaREFd5URVlV6JaOiQQ_oavkATlQ2aMyGjUuLnA9f4ecS6vdTTM9bcFxBqHWTZAgmEhCEZ9_p3SZXbNZZ41s3BtywGhQi0WvPkXD2Gk8mJ3xJZc6bfTetnA",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJvXFi45i7fRcRigu7oUKYays",
+      "plus_code": {
+        "compound_code": "8HHR+X3 Kampala, Uganda",
+        "global_code": "6GGJ8HHR+X3"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJvXFi45i7fRcRigu7oUKYays",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 201,
+      "vicinity": "Plot 14 Mabua Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3260438000000001,
+          "lng": 32.5877876
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3275083302915021,
+            "lng": 32.5892600802915
+          },
+          "southwest": {
+            "lat": 0.324810369708498,
+            "lng": 32.5865621197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9a819c5efcac6b8612898b265afb89a6489f3631",
+      "name": "The Lawns Wild Game & Barbecue Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 319,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115395153824389424427/photos\">kenneth onek</a>"
+          ],
+          "photo_reference": "CmRaAAAARg-8cRYUJ_hoPxM_mRhP53NUH2djD25z_5ASylZ3ikRQH99t-4HLArmn4wMdvuKSD1QtFAu8rM1tkVSkZ4B9WJTX4Jea6gy3WzXCPtj4LYaK7D7C4PO-EMjxRiCS9DOHEhD_iwIWHEURWFwwTec4u449GhS_6mR08b9fp1tTenz1vZ8Yc9CYHA",
+          "width": 480
+        }
+      ],
+      "place_id": "ChIJe0v2i5q7fRcRPir8dHOEPw8",
+      "plus_code": {
+        "compound_code": "8HGQ+C4 Kampala, Uganda",
+        "global_code": "6GGJ8HGQ+C4"
+      },
+      "rating": 4.3,
+      "reference": "ChIJe0v2i5q7fRcRPir8dHOEPw8",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 104,
+      "vicinity": "3 Lower Kololo Terrace Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.326174,
+          "lng": 32.5876
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.327537630291502,
+            "lng": 32.5888609302915
+          },
+          "southwest": {
+            "lat": 0.3248396697084979,
+            "lng": 32.5861629697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f49cf52b8f2060c4b76d1b51a0efe689fecff8ae",
+      "name": "The Lawns Wild Game & Barbecue Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2296,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102225319662503977129/photos\">The Lawns Wild Game &amp; Barbecue Restaurant</a>"
+          ],
+          "photo_reference": "CmRaAAAA6CGNcqW-lioE5u2rApAz3JkmyPgAwLsms_qtThv_0RrWbnJrXicqNevxqfSy6b50LNZnfU095XKKF3XRWCzp-ibz3hW1ONPF3j7ukzILZ4wXqdLJjaPe8NtmrnSNNVmVEhDoBVL9UV1FexJf4SCofKYoGhS3xheYTGW2yjDAPuSjpLjk8BPdoQ",
+          "width": 3450
+        }
+      ],
+      "place_id": "ChIJhcFzgZy7fRcRO-KJ7FsLjsk",
+      "plus_code": {
+        "compound_code": "8HGQ+F2 Kampala, Uganda",
+        "global_code": "6GGJ8HGQ+F2"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJhcFzgZy7fRcRO-KJ7FsLjsk",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 657,
+      "vicinity": "Unit 8, Plot 1-3 Coral Crescent, Lower Kololo/P.O. Box 2288 3A, Lower Kololo Terrace, Kololo, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3338124,
+          "lng": 32.5945453
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.335208230291502,
+            "lng": 32.59589648029149
+          },
+          "southwest": {
+            "lat": 0.332510269708498,
+            "lng": 32.59319851970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "3e1bbd21bab40e6be1212a5475773402a4a647fc",
+      "name": "Holy Crêpe",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 625,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115713272763329067352/photos\">Holy Crêpe</a>"
+          ],
+          "photo_reference": "CmRaAAAAWRKXCrjMK2N72SpkOwYdpHNjd0nSnTnKW7SZJJdFfYR68qGfG_kmdqlK7A3Et2M_ZjFinxl7UGamNn7nHfktSG130HtUsGLWgBjb8AfxUetCYS9Qo6uGdJdukMQlXgSbEhBzUPbPVObTUKiEgkmIwS_IGhT0mp5d09J83qceDSh6lVYsUftKWw",
+          "width": 1080
+        }
+      ],
+      "place_id": "ChIJAVFLy7y7fRcR3cv-KVeFyHk",
+      "plus_code": {
+        "compound_code": "8HMV+GR Kampala, Uganda",
+        "global_code": "6GGJ8HMV+GR"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJAVFLy7y7fRcR3cv-KVeFyHk",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 682,
+      "vicinity": "17 Kololo Hill Lane, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.332187,
+          "lng": 32.5873543
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.333541230291502,
+            "lng": 32.5885144302915
+          },
+          "southwest": {
+            "lat": 0.3308432697084979,
+            "lng": 32.5858164697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f1f0ecb1e103b19b621135a67477cad765318b58",
+      "name": "Khana Khazana",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101979422812678439929/photos\">DonMirza Gaming</a>"
+          ],
+          "photo_reference": "CmRaAAAAgaAuGNkQMWpeReBWfystklSkra-Ww5ecqk0Oy_rE6ckjACt2H1OVCUy-UD8owEApvnTMksikK7z3Gj9Y4zokI5Rylq2GiJVFekOZ7NoVeFVh05ciiHety7jbG9xyH0YFEhAMpvu_Mq50RhVQYzHpD4FLGhSvuptv_SWqXdonDaBh-DQ9Tcws_g",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJjdgS76G7fRcR1XIZTmCe1lg",
+      "plus_code": {
+        "compound_code": "8HJP+VW Kampala, Uganda",
+        "global_code": "6GGJ8HJP+VW"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJjdgS76G7fRcR1XIZTmCe1lg",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 460,
+      "vicinity": "Plot 20 Acacia Avenue/21528, John Babiha (Acacia) Avenue, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3166814000000001,
+          "lng": 32.58954229999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3180309802915021,
+            "lng": 32.5909305802915
+          },
+          "southwest": {
+            "lat": 0.315333019708498,
+            "lng": 32.5882326197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "d7530f4a51951bbd4d829f0de56f20b6c6ca9f4e",
+      "name": "Pinki's Restaurant",
+      "place_id": "ChIJa2PNQYe7fRcR2Mebnztj8eQ",
+      "plus_code": {
+        "compound_code": "8H8Q+MR Kampala, Uganda",
+        "global_code": "6GGJ8H8Q+MR"
+      },
+      "reference": "ChIJa2PNQYe7fRcR2Mebnztj8eQ",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Makindye Nile Avenue, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3190739,
+          "lng": 32.5868225
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.320121080291502,
+            "lng": 32.5879668802915
+          },
+          "southwest": {
+            "lat": 0.3174231197084979,
+            "lng": 32.5852689197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f39a8d2f9dcb696e90040a120ace0811a14d78a6",
+      "name": "The Lakes Restaurant.",
+      "photos": [
+        {
+          "height": 1920,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115974522326892994298/photos\">edson tumwine</a>"
+          ],
+          "photo_reference": "CmRZAAAAETXhfj7OFFXckQ5dZ6ePLKfpUSko2PRwD8hx5vuTuA2hKxaGitWowRweoZcf9xHVk-qNCVGeZCqSnkhWwl8k0p4BLZiGuDEc6yfFHNjyq_piEtqogGvMhVNyWbhqGGZCEhDK4DYuGsKsGBV311epKRcvGhSWOITpmsuzjGL6usAnadN54pdkOg",
+          "width": 2560
+        }
+      ],
+      "place_id": "ChIJ6SrtbIG7fRcRegrh1qjcQw8",
+      "plus_code": {
+        "compound_code": "8H9P+JP Kampala, Uganda",
+        "global_code": "6GGJ8H9P+JP"
+      },
+      "rating": 4.3,
+      "reference": "ChIJ6SrtbIG7fRcRegrh1qjcQw8",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 199,
+      "vicinity": "Plot 16-20 / P.O Box 7814 Kintu Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3300266,
+          "lng": 32.5883088
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.3313167802915021,
+            "lng": 32.5896383302915
+          },
+          "southwest": {
+            "lat": 0.328618819708498,
+            "lng": 32.5869403697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "67996ec6a8b805f38ca85840df541646837406de",
+      "name": "Red Plate Restaurant",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJxXoN05i7fRcRT6gpJQQpM7s",
+      "plus_code": {
+        "compound_code": "8HJQ+28 Kampala, Uganda",
+        "global_code": "6GGJ8HJQ+28"
+      },
+      "reference": "ChIJxXoN05i7fRcRT6gpJQQpM7s",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Philip Road, Kampala"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 0.3190149,
+          "lng": 32.58703169999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 0.320290280291502,
+            "lng": 32.58874048029149
+          },
+          "southwest": {
+            "lat": 0.3175923197084979,
+            "lng": 32.58604251970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c41ee78beff48c899e2bdfe5269e8d0a071f80e8",
+      "name": "Explorer Restaurant",
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116497386480201313734/photos\">Elie Kanakri</a>"
+          ],
+          "photo_reference": "CmRaAAAATdUSIWgTsRpMleHxcns4RxGtxJjgZV7sO2OvdHo0oildeHRD7NsMFh-9ZDhmWrgRRw_JuuOQ_dpax56We1wD2r7PSFhBIcJFq0ZxSK520XlnSf_-_qMLZfsF42O4sXRKEhCD8ZFy8K2ID-SNsNjqYIoQGhTsKsgC9781lG673-qgOlr3nTsQ9Q",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJB-1CQYG7fRcRzbhruGFX0wk",
+      "plus_code": {
+        "compound_code": "8H9P+JR Kampala, Uganda",
+        "global_code": "6GGJ8H9P+JR"
+      },
+      "rating": 4.1,
+      "reference": "ChIJB-1CQYG7fRcRzbhruGFX0wk",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 10,
+      "vicinity": "Plot 16 - 20 Kintu Road/P.O. Box 7814 Kintu Road, Kampala"
+    }
+  ],
+  "status": "OK"
+}
