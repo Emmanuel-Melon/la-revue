@@ -8,6 +8,7 @@ import Filter from './Components/Filter'
 import ListRestaurants from './Components/ListRestaurants'
 import Navabar from './Components/Navbar'
 import Map from './Components/Map'
+import SearchRestarants from './Components/Search'
 
 /**
  * services
@@ -43,12 +44,12 @@ class App extends Component {
               isMarkerShown
               googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2IDnv8a9yaw4XPRSO4JgKYMuyqWhsEs'
               loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `400px` }} />}
+              containerElement={<div style={{ height: `100vh` }} />}
               mapElement={<div style={{ height: `100%` }} />}
             />
           </section>
           <section className='sidebar'>
-            <h1 className='header'>Nearby Restaurants</h1>
+            <SearchRestarants />
             <Filter />
             <ListRestaurants />
           </section>
