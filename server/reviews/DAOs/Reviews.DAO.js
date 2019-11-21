@@ -4,7 +4,7 @@
 const {
   DbReadInterface,
   DbWriteInterface
-} = require('../../utils/mongodb')
+} = require('../../utils/crud')
 
 class ReviewsDAO {
   constructor () {
