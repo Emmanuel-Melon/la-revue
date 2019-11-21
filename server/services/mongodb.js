@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb')
-const url = 'mongodb+srv://root:MpjZUoIIAihizr7s@bumu-test-mongo-cluster-tyvm7.gcp.mongodb.net/test?retryWrites=true&w=majority'
+const url = 'mongodb+srv://backend:Z*NsqgS5$@jHsF2@cluster0-itr9i.mongodb.net/test?retryWrites=true&w=majority'
 const name = 'development'
 /**
  *
