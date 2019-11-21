@@ -10,16 +10,6 @@ const DBProvider = require('./DBProvider')
  */
 const { ObjectID } = require('mongodb')
 
-/**
- *
- * @return {string}
- * @param ref
- */
-const findCollection = ref => {
-  const { collection, db } = ref
-  return db.collection(collection)
-}
-
 /************************************************************************
  * * **************************** WRITE OPERATIONS  ****************************
  ************************************************************************
@@ -29,12 +19,15 @@ const findCollection = ref => {
  *
  */
 class DbWriteInterface {
-  constructor (collection, options = {}) {
-    this.db = DBProvider.returnDB()
+  constructor (collection) {
     this.collection = collection
-    this.options = options
   }
 
+  /**
+   *
+   * @param _id
+   * @returns {boolean}
+   */
   static isValidId (_id) {
     return ObjectID.isValid(_id)
   }
@@ -59,6 +52,54 @@ class DbWriteInterface {
       })
     }
   }
+
+  /**
+   *
+   * @param document
+   * @param field
+   * @returns {Promise<{document: (*|Collection~findAndModifyWriteOpResultObject), error: null}|{data: null, error: *}>}
+   */
+  async findOneAndDelete (document, field) {
+    try {
+      const query = {}
+      const col = DBProvider.findCollection(this.collection)
+      query[field] = ObjectID(document)
+      const found = await col.findOneAndDelete(query)
+      return ({
+        document: found,
+        error: null
+      })
+    } catch (error) {
+      return ({
+        data: null,
+        error
+      })
+    }
+  }
+
+  /**
+   *
+   * @param document
+   * @param data
+   * @returns {Promise<{document: (*|Collection~findAndModifyWriteOpResultObject), error: null}|{data: null, error: *}>}
+   */
+  async findOneAndUpdate (document, data) {
+    try {
+      const col = DBProvider.findCollection(this.collection)
+      const found = await col.findOneAndUpdate({ _id: ObjectID(document) },
+        { $set: data })
+      return ({
+        document: found,
+        error: null
+      })
+    } catch (error) {
+      console.log(error)
+      return ({
+        data: null,
+        error
+      })
+    }
+  }
 }
 
 /************************************************************************
@@ -70,25 +111,46 @@ class DbWriteInterface {
  *
  */
 class DbReadInterface {
-  constructor (collection, options = {}) {
-    this.db = DBProvider.returnDB()
+  constructor (collection) {
     this.collection = collection
-    this.options = options
   }
 
+  /**
+   *
+   * @param _id
+   * @returns {boolean}
+   */
   static isValidId (_id) {
     return ObjectID.isValid(_id)
   }
 
+  /**
+   *
+   * @param document
+   * @param field
+   * @returns {AggregationCursor}
+   */
+  aggregateById (document, field) {
+    const col = DBProvider.findCollection(this.collection)
+    const query = {}
+    query[field] = ObjectID(document)
+    return col.aggregate(
+      [ { $match: query } ]
+    )
+  }
+
+  /**
+   *
+   * @param document
+   * @returns {*}
+   */
   findOneById (document) {
     const col = DBProvider.findCollection(this.collection)
     return col.find({ _id: ObjectID(document) })
   }
+}
 
-  findOne (document, field) {
-    const query = {}
-    const col = DBProvider.findCollection(this.collection)
-    query[field] = document
-    return col.find(query)
-  }
+module.exports = {
+  DbReadInterface,
+  DbWriteInterface
 }
