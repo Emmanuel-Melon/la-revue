@@ -1,0 +1,28 @@
+{
+  "name": "la-revue",
+  "version": "1.0.0",
+  "description": "A restaurant review web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emmanuel-Melon/la-revue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emmanuel-Melon/la-revue/issues"
+  },
+  "homepage": "https://github.com/Emmanuel-Melon/la-revue#readme",
+  "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "mongodb": "^3.3.4"
+  }
+}
