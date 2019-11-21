@@ -4,7 +4,6 @@
  */
 const app = require('./app')
 
-
 /************************************************************************
  * * **************************** MONGODB SERVER  ****************************
  ************************************************************************
@@ -16,15 +15,12 @@ const mongoDBService = new MongoDBService()
 mongoDBService.init()
   .then(response => {
     const { conn, db } = response
-
     // inject DB
     DBProvider.injectDB(db)
   }).catch(error => {
   // exit process
-  console.log(error)
-  process.exit(1)
-  // log error
-})
+    console.log(error)
+  })
 
 /**
  * init express server
