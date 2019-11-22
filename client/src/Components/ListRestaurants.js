@@ -16,14 +16,13 @@ const ListRestaurants = ({ restaurants }) => {
       <div>
         {
           restaurants.map(restaurant => {
-            console.log(restaurant)
-            return <RestaurantSkeleton>
+            return (
               <RestaurantSummary
                 key={restaurant.id}
                 restaurant={{ ...restaurant }}
-                onClick={() => handleClick(restaurant)}
+                onClick={handleClick}
               />
-            </RestaurantSkeleton>
+            )
           })
         }
       </div>
