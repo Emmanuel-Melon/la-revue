@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import { FaFilter } from 'react-icons/fa'
 
 /**
  * components
@@ -20,7 +21,16 @@ import Geolocation from './Services/Geolocation'
  */
 import API from './Utils/api'
 
+
+// use context to set user current location
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: true
+    }
+  }
   componentDidMount () {
     this.getReviews()
   }
@@ -34,6 +44,16 @@ class App extends Component {
       console.log(error)
     }
   }
+
+  showControls = () => {
+    console.log(this.state)
+    this.setState(previousState  => {
+      return Object.assign({}, previousState, {
+        hidden: !previousState.hidden
+      })
+    })
+  }
+
   render () {
     return (
       <div>
@@ -44,13 +64,25 @@ class App extends Component {
               isMarkerShown
               googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2IDnv8a9yaw4XPRSO4JgKYMuyqWhsEs'
               loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `100vh` }} />}
+              containerElement={<div style={{ height: `100%` }} />}
               mapElement={<div style={{ height: `100%` }} />}
             />
           </section>
           <section className='sidebar'>
-            <SearchRestarants />
-            <Filter />
+            <div className='controls'>
+              <h1 className='header'>Restaurants in Kampala</h1>
+              <div>
+                <button onClick={this.showControls} className='toggle'><FaFilter /> Filter Restaurants</button>
+              </div>
+            </div>
+            {
+              !this.state.hidden ? (
+                <div>
+                  <SearchRestarants />
+                  <Filter />
+                </div>
+              ) : null
+            }
             <ListRestaurants />
           </section>
         </main>
