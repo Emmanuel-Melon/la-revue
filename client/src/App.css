@@ -1,14 +1,16 @@
 /**
-typography
+Fredericka+the+Great 6/10
+Love+Ya+Like+A+Sister 6/10
+Rye 8/10
  */
-@import url('https://fonts.googleapis.com/css?family=Oleo+Script|PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rye|PT+Mono&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oleo Script', sans-serif;
+  font-family: 'Rye', sans-serif;
   font-weight: 700;
 }
 
-p, label, li, button, input[type='text'] {
+p, label, li, button, input[type='text'], span {
   font-weight: 400;
   font-size: 18px;
   font-family: 'PT Mono', sans-serif;
@@ -18,7 +20,7 @@ p, label, li, button, input[type='text'] {
 }
 
 .sidebar {
-  background: #cbcbcb;
+  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
   padding: 8px;
   flex: 1;
   overflow-x: scroll;
@@ -79,21 +81,8 @@ ul {
   margin: 0.5em;
 }
 
-.submit:hover, .toggle:hover {
+.submit:hover {
   cursor: pointer;
-}
-
-.toggle {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all .3s ease-in-out;
-  border: solid 0.2em #37104a;
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  width: 100%;
-  padding: 8px;
-  color: gold;
-  font-size: 18px;
-  margin-bottom: 0.5em;
 }
 
 .list-item {
@@ -121,22 +110,12 @@ ul {
   justify-content: space-between;
 }
 
-.filter {
-  margin-bottom: 5px;
-  padding: 5px;
-}
-
-
 .header {
   color: #666666;
 }
 
 .sub-header {
   color: #666666;
-}
-
-p {
-  color: #585858;
 }
 
 .name {
@@ -147,27 +126,6 @@ p {
   margin-bottom: 0.5em;
 }
 
-.filter-body {
-  display: flex;
-}
-
-label {
-  margin: 8px;
-  color: #404040;
-}
-
-.filters {
-  border: none;
-  padding: 8px;
-  width: 50%;
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  color: gold;
-}
-
-.list {
-
-}
 
 .ratings {
 
@@ -272,4 +230,18 @@ label {
   justify-content: center;
   align-items: center;
   padding: 8px;
+}
+
+.controls {
+  background: rgba(53, 15, 70, 0.85);
+  padding: 8px;
+  margin-bottom: 0.4em;
+  color: gold;
+}
+
+.centered {
+  text-align: center;
+  color: #666666;
+  font-size: 24px;
+  font-weight: bolder;
 }
