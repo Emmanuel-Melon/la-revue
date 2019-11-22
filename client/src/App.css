@@ -46,7 +46,7 @@ p, label, li, button, input[type='text'], span {
   text-decoration: none;
 }
 
-ul {
+.nav {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -203,22 +203,27 @@ ul {
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
   padding: 1em;
 }
 
 .about-body {
   display: flex;
 }
-
 .image {
   flex: 1;
 }
 
 .info  {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.info > ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .dummy {
