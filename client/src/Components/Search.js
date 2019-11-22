@@ -6,7 +6,7 @@ const SearcRestaurants = () => {
       <h4 className='sub-header'>Filter by city</h4>
       <div className='search-body'>
         <div>
-          <input type='text' placeholder='E.g Kampala' id='city' className='searchbar'/>
+          <input type='text' placeholder='E.g Kampala' id='city' className='searchbar' />
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import '../App.css'
-import { FaFilter} from "react-icons/fa";
+import { FaFilter, FaInfo, FaInfoCircle } from "react-icons/fa";
 import Map from "../Components/Map";
 import SearchRestarants from "../Components/Search";
-import Filter from "../Components/Filter";
+import FilterComponent from "../Components/Filter";
 import ListRestaurants from "../Components/ListRestaurants";
 
 /**
@@ -56,20 +56,10 @@ class HomeScreen extends Component {
           </section>
           <section className='sidebar'>
             <div className='controls'>
-              <h1 className='header'>Restaurants in Kampala</h1>
-              <p>Click on Map to add a new restaurant</p>
-              <div>
-                <button onClick={this.showControls} className='toggle'><FaFilter /> Filter Restaurants</button>
-              </div>
+              <h1>Restaurants in Kampala</h1>
+              <p><FaInfoCircle /> Click on the Map to add a new restaurant</p>
             </div>
-            {
-              !this.state.hidden ? (
-                <div>
-                  <SearchRestarants />
-                  <Filter />
-                </div>
-              ) : null
-            }
+            <FilterComponent />
             <ListRestaurants />
           </section>
         </main>

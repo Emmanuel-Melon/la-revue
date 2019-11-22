@@ -108,7 +108,6 @@ const CustomSkinMap = withScriptjs(
   ))
 )
 
-
 function Map ({ ...props }) {
   return (
     <CustomSkinMap
