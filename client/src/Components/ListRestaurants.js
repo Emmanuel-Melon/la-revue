@@ -1,6 +1,7 @@
 import React from 'react'
 
 import RestaurantSummary from './RestaurantSummary'
+import RestaurantSkeleton from './RestaurantSkeleton'
 
 import data from './data'
 
@@ -9,16 +10,21 @@ const handleClick = (restaurant) => {
   console.log(restaurant)
 }
 
-const ListRestaurants = () => {
+const ListRestaurants = ({ restaurants }) => {
   return (
     <section className='list'>
       <div>
         {
-          data.results.map(restaurant => <RestaurantSummary
-            key={restaurant.id}
-            restaurant={{ ...restaurant }}
-            onClick={() => handleClick(restaurant)}
-          />)
+          restaurants.map(restaurant => {
+            console.log(restaurant)
+            return <RestaurantSkeleton>
+              <RestaurantSummary
+                key={restaurant.id}
+                restaurant={{ ...restaurant }}
+                onClick={() => handleClick(restaurant)}
+              />
+            </RestaurantSkeleton>
+          })
         }
       </div>
     </section>

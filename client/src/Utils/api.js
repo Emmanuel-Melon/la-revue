@@ -42,6 +42,23 @@ class API {
       }
     }
   }
+
+  async customPost (endpoint, data) {
+    try {
+      return await axios.post(endpoint)
+    } catch (error) {
+      console.log(error)
+      return error
+    }
+  }
+
+  async customGet (endpoint) {
+    try {
+      return await axios.get(endpoint)
+    } catch (error) {
+      return error
+    }
+  }
 }
 
 export default API
