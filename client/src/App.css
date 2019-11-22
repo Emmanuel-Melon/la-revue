@@ -203,22 +203,38 @@ p, label, li, button, input[type='text'], span {
 }
 
 .about {
-  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
   padding: 1em;
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+}
+
+.about-header {
+  background: rgb(65, 35, 100);
+  color: white;
+  padding: 18px;
+  margin-bottom: 8px;
+}
+
+.about-content {
+  color: #cbcbcb;
 }
 
 .about-body {
   display: flex;
 }
 .image {
-  flex: 1;
+  flex: 2;
 }
 
 .info  {
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 18px;
+}
+
+.info > h3 {
+  color: gold;
 }
 
 .info > ul {
@@ -251,4 +267,11 @@ p, label, li, button, input[type='text'], span {
   color: #666666;
   font-size: 24px;
   font-weight: bolder;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gold;
 }
