@@ -18,8 +18,7 @@ p, label, li, button, input[type='text'] {
 }
 
 .sidebar {
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  background: #cbcbcb;
   padding: 8px;
   flex: 1;
   overflow-x: scroll;
@@ -30,8 +29,8 @@ p, label, li, button, input[type='text'] {
 }
 
 .navbar {
-  background: rgb(91,9,172);
-  background: linear-gradient(90deg, rgba(91,9,172,1) 0%, rgba(102,51,153,1) 40%, rgba(102,51,153,1) 80%);
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
   padding: 8px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   display: flex;
@@ -42,6 +41,7 @@ p, label, li, button, input[type='text'] {
 .navbrand {
   color: gold;
   font-size: 24px;
+  text-decoration: none;
 }
 
 ul {
@@ -52,15 +52,27 @@ ul {
 
 .link {
   margin: 0.5em;
-  color: #ffffff;
+  text-decoration: none;
+  transition: all .4s ease-in-out;
+  padding: 8px;
+  color: gold;
+  border: solid 0.2em transparent;
 }
 
-.submit {
-  background: rgb(91,9,172);
-  background: linear-gradient(90deg, rgba(91,9,172,1) 0%, rgba(102,51,153,1) 40%, rgba(102,51,153,1) 80%);
-  width: 445px;
+.link:hover {
   padding: 8px;
-  color: #fff;
+  transform: scale(1.1);
+}
+
+
+
+.submit {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  width: 420px;
+  padding: 8px;
+  color: gold;
   border-radius: 0.2em;
   font-size: 18px;
   border: solid 0.1em rgb(91,9,172);
@@ -72,9 +84,11 @@ ul {
 }
 
 .toggle {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .3s ease-in-out;
   border: solid 0.2em #37104a;
-  background: rebeccapurple;
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
   width: 100%;
   padding: 8px;
   color: gold;
@@ -83,10 +97,12 @@ ul {
 }
 
 .list-item {
+  margin: 0.5em;
   background: #fff;
   padding: 0.5em;
   border-bottom: solid 0.2em rebeccapurple;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  word-wrap: break-spaces;
 }
 
 .list-item:hover {
@@ -112,11 +128,11 @@ ul {
 
 
 .header {
-  color: #fff;
+  color: #666666;
 }
 
 .sub-header {
-  color: #fff;
+  color: #666666;
 }
 
 p {
@@ -137,13 +153,16 @@ p {
 
 label {
   margin: 8px;
-  color: gold;
+  color: #404040;
 }
 
 .filters {
-  border-radius: 0.4em;
+  border: none;
   padding: 8px;
   width: 50%;
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  color: gold;
 }
 
 .list {
@@ -178,10 +197,14 @@ label {
 }
 
 .searchbar {
-  width: 95%;
-  border-radius: 0.3em;
+  width: 98%;
+  border: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  padding: 0.8em;
+  padding: 8px;
+  font-size: 18px;
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  color: gold;
 }
 
 .recommended {
@@ -189,12 +212,12 @@ label {
   font-size: 18px;
   width: 40%;
   font-weight: 400;
-  color: #585858;
+  color: rgb(67,27,84);
   margin: 0.3em;
   padding: 0.3em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all .3s ease-in-out;
   border: solid 0.2em #37104a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .open {
@@ -219,3 +242,34 @@ label {
   text-align: center;
 }
 
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.about-body {
+  display: flex;
+}
+
+.image {
+  flex: 1;
+}
+
+.info  {
+  flex: 2;
+}
+
+.dummy {
+  width: 100%;
+  height: auto;
+}
+
+.vert {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
