@@ -8,7 +8,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch
-} from "react-router-dom"
+} from 'react-router-dom'
 
 /**
  * services
@@ -18,9 +18,7 @@ import Geolocation from './Services/Geolocation'
 import AboutScreen from './Screens/About'
 import HomeScreen from './Screens/Home'
 import RestaurantsScreen from './Screens/Restaurants'
-import Navabar from "./Components/Navbar"
-
-
+import Navabar from './Components/Navbar'
 
 // use context to set user current location
 class App extends Component {
@@ -28,11 +26,11 @@ class App extends Component {
     return (
       <Router>
         <Navabar />
-      <Switch>
-        <Route exact path="/" component={HomeScreen} />
-        <Route exact path="/about" component={AboutScreen} />
-        <Route exact path="/restaurants" component={RestaurantsScreen} />
-      </Switch>
+        <Switch>
+          <Route exact path='/' component={HomeScreen} />
+          <Route exact path='/about' component={AboutScreen} />
+          <Route exact path='/restaurants' component={RestaurantsScreen} />
+        </Switch>
       </Router>
     )
   }

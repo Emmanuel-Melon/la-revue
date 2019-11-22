@@ -10,7 +10,7 @@ const About = () => {
         </div>
         <div className='about-body'>
           <div className='image'>
-            <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" className='dummy'/>
+            <img src='https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='' className='dummy' />
           </div>
           <div className='info'>
             <h3>With La Revue</h3>

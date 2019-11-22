@@ -21,7 +21,8 @@ class HomeScreen extends Component {
       country: {},
       coords: {},
       restaurants: [],
-      restaurantsLoading: false
+      restaurantsLoading: false,
+      markers: []
     }
   }
   componentDidMount () {
@@ -33,9 +34,7 @@ class HomeScreen extends Component {
     try {
       const api = new API('/reviews')
       const reviews = await api.fetchData()
-      console.log(reviews)
     } catch (error) {
-      console.log(error)
     }
   }
 
@@ -45,7 +44,6 @@ class HomeScreen extends Component {
       const api = new API('/restaurants')
       const res = await api.customPost(`https://www.googleapis.com/geolocation/v1/geolocate?key=${key}`)
       const { data } = res
-      console.log(data)
       const { location } = data
       this.setState({ coords: location})
       const radius = 1500
@@ -58,14 +56,12 @@ class HomeScreen extends Component {
         type,
         location
       })
-      const { data: { responseBody: { restaurants } } } = res3
-      console.log(restaurants)
+      const { data: { responseBody: { coords, restaurants } } } = res3
       this.setState({ restaurantsLoading: false})
       const res2 = await api.customPost(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${key}`)
       const { data: { results }} = res2
       const [ address ] = results
       const { address_components } = address
-      console.log(address_components)
 
       // administrative_area_level_1
       const [country] = address_components.filter(component => {
@@ -76,15 +72,13 @@ class HomeScreen extends Component {
         return component.types.includes('administrative_area_level_2')
       })
 
-      console.log(country)
-      console.log(state)
       this.setState({
+        markers: coords,
         state,
         country,
         restaurants
       })
     } catch (error) {
-      console.log(error)
     }
   }
 
@@ -99,6 +93,7 @@ class HomeScreen extends Component {
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `100%` }} />}
               mapElement={<div style={{ height: `100%` }} />}
+              markers={this.state.markers}
             />
           </section>
           <section className='sidebar'>
