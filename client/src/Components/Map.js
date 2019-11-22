@@ -20,11 +20,18 @@ const positions = [
   }
 ]
 
+const handleClick = () => {
+  console.log('clicked!')
+}
+
+const Greeting = () => <h3>Hi!</h3>
+
 const CustomSkinMap = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
       defaultZoom={13}
       defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
+      onClick={handleClick}
       defaultOptions={{
         scrollwheel: false,
         zoomControl: true,
@@ -89,7 +96,9 @@ const CustomSkinMap = withScriptjs(
           }
         ]
       }}
+
     >
+      <Greeting />
       {
         positions.map(position => {
           return <Marker position={{ ...position }} />
@@ -98,6 +107,7 @@ const CustomSkinMap = withScriptjs(
     </GoogleMap>
   ))
 )
+
 
 function Map ({ ...props }) {
   return (

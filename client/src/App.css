@@ -1,11 +1,28 @@
+/**
+typography
+ */
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script|PT+Mono&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oleo Script', sans-serif;
+  font-weight: 700;
+}
+
+p, label, li, button, input[type='text'] {
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'PT Mono', sans-serif;
+}
 .wrapper {
   display: flex;
 }
 
 .sidebar {
-  background: #eee;
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
   padding: 8px;
   flex: 1;
+  overflow-x: scroll;
 }
 
 .map {
@@ -15,17 +32,60 @@
 .navbar {
   background: rgb(91,9,172);
   background: linear-gradient(90deg, rgba(91,9,172,1) 0%, rgba(102,51,153,1) 40%, rgba(102,51,153,1) 80%);
-  color: #fff;
   padding: 8px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbrand {
+  color: gold;
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  margin: 0.5em;
+  color: #ffffff;
+}
+
+.submit {
+  background: rgb(91,9,172);
+  background: linear-gradient(90deg, rgba(91,9,172,1) 0%, rgba(102,51,153,1) 40%, rgba(102,51,153,1) 80%);
+  width: 445px;
+  padding: 8px;
+  color: #fff;
+  border-radius: 0.2em;
+  font-size: 18px;
+  border: solid 0.1em rgb(91,9,172);
+  margin: 0.5em;
+}
+
+.submit:hover, .toggle:hover {
+  cursor: pointer;
+}
+
+.toggle {
+  transition: all .3s ease-in-out;
+  border: solid 0.2em #37104a;
+  background: rebeccapurple;
+  width: 100%;
+  padding: 8px;
+  color: gold;
+  font-size: 18px;
+  margin-bottom: 0.5em;
 }
 
 .list-item {
   background: #fff;
-  padding: 5px;
-  margin-bottom: 10px;
-  border-left: solid 0.4em rebeccapurple;
-  border-radius: 0.3em;
+  padding: 0.5em;
+  border-bottom: solid 0.2em rebeccapurple;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
@@ -41,7 +101,8 @@
 
 .list-item-info {
   display: flex;
-  align-items: center;
+
+  justify-content: space-between;
 }
 
 .filter {
@@ -49,32 +110,26 @@
   padding: 5px;
 }
 
-button {
-  background: rgb(91,9,172);
-  background: linear-gradient(90deg, rgba(91,9,172,1) 0%, rgba(102,51,153,1) 40%, rgba(102,51,153,1) 80%);
-  width: 435px;
-  padding: 10px;
-  color: #fff;
-  border-radius: 0.8em;
-  font-size: 18px;
-  transition: all .4s ease-in-out;
-  border: solid 0.2em rgb(91,9,172);
-}
-
-button:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
 
 .header {
-  color: #412364;
+  color: #fff;
 }
 
 .sub-header {
-  color:  	#787878;
+  color: #fff;
 }
 
+p {
+  color: #585858;
+}
+
+.name {
+  color: #333;
+}
+
+.filter {
+  margin-bottom: 0.5em;
+}
 
 .filter-body {
   display: flex;
@@ -82,20 +137,22 @@ button:hover {
 
 label {
   margin: 8px;
-  color:  	#787878;
+  color: gold;
 }
 
 .filters {
   border-radius: 0.4em;
   padding: 8px;
+  width: 50%;
 }
 
 .list {
-  overflow-y: scroll !important;
+
 }
 
 .ratings {
-  text-align: center;
+
+  color: rebeccapurple;
 }
 
 .types {
@@ -107,11 +164,17 @@ label {
   background: #eee;
   font-size: 18px;
   font-weight: 400;
-  color: rgb(91,9,172);
+  color: rebeccapurple;
   margin: 0.3em;
   padding: 0.3em;
-  border-radius: 0.3em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .3s ease-in-out;
+  border: solid 0.2em #37104a;
+}
+
+.tag:hover {
+  transform: scale(1.1);
+  background: gold;
 }
 
 .searchbar {
@@ -120,3 +183,39 @@ label {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   padding: 0.8em;
 }
+
+.recommended {
+  background: gold;
+  font-size: 18px;
+  width: 40%;
+  font-weight: 400;
+  color: #585858;
+  margin: 0.3em;
+  padding: 0.3em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .3s ease-in-out;
+  border: solid 0.2em #37104a;
+}
+
+.open {
+  background: #00CC33;
+  color: #fff;
+}
+
+.closed {
+  background: red;
+  color: #fff;
+}
+
+.closed, .open {
+  width: 120px;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0.3em;
+  padding: 0.3em;
+  border-radius: 0.3em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all .3s ease-in-out;
+  text-align: center;
+}
+
