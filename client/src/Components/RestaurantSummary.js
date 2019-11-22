@@ -1,16 +1,21 @@
 import React from 'react'
+import { FaMapMarker, FaEdit } from 'react-icons/fa'
+import Rating from './Ratings'
 
 const RestaurantSummary = (props) => {
   const { restaurant } = props
+  const { opening_hours } = restaurant
+  const open_now = true
   return (
       <article className='list-item'>
         <div className='list-item-info'>
           <div>
-            <img src={restaurant.icon} alt='icon' />
+            <h3 className='name'> {restaurant.name} { opening_hours ? <span className='open'>Open</span> : <span className='closed'>Closed</span> }</h3>
+            <Rating rating={restaurant.rating}/> { restaurant.rating > 4 ? <span className='recommended'>recommended</span> : null}
+            <p ><FaMapMarker /> {restaurant.vicinity}</p>
           </div>
           <div>
-            <h3 className='header'>{restaurant.name} <span className='ratings'>{restaurant.rating}</span> </h3>
-            <p className='sub-header'>{restaurant.vicinity}</p>
+            <img src={restaurant.icon} alt='icon' />
           </div>
         </div>
         <div className='types'>
@@ -22,7 +27,7 @@ const RestaurantSummary = (props) => {
         </div>
         <div className='list-item-action'>
           <div>
-            <button>Leave a Review</button>
+            <button className='submit'><FaEdit /> Leave a Review</button>
           </div>
         </div>
       </article>

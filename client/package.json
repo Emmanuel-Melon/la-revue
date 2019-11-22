@@ -7,6 +7,10 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-google-maps": "^9.4.5",
+    "react-icons": "^3.8.0",
+    "react-modal": "^3.11.1",
+    "react-ratings-declarative": "^3.4.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "recompose": "^0.30.0"
   },
@@ -14,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +36,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
+  },
+  "engines": {
+    "node": "v10.15.3",
+    "npm": "6.4.1"
   }
 }
