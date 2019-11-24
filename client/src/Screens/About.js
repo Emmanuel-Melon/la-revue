@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -18,12 +19,11 @@ const About = () => {
           </div>
           <div className='info'>
             <h3>How to use</h3>
-            <ul>
-              <li>You can add fake restaurants in any given location</li>
-              <li>It uses geolocation information to detect nearby restaurants</li>
+            <ul className='instructions'>
+              <li>Click on any location on the map to add a new fake restaurants.</li>
+              <li>It uses geolocation information to detect nearby restaurants.</li>
             </ul>
-            <button className='submit'>Get Started</button>
-
+            <NavLink to='/'><button className='submit'>Get Started</button></NavLink>
             <h3>Disclaimer</h3>
             <p>User added restaurants are purely fictional and will not be added to Google maps. <br/>
             They'll only be accessible from La Revue. <br/>
@@ -32,9 +32,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      <footer>
-        <p>OpenClassrooms 2019</p>
-      </footer>
     </main>
   )
 }
