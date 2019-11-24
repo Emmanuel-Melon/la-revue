@@ -5,6 +5,15 @@ Rye 8/10
  */
 @import url('https://fonts.googleapis.com/css?family=Rye|PT+Mono&display=swap');
 
+html, body {
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rye', sans-serif;
   font-weight: 700;
@@ -16,6 +25,7 @@ p, label, li, button, input[type='text'], span {
   font-family: 'PT Mono', sans-serif;
 }
 .wrapper {
+  height: 100%;
   display: flex;
 }
 
@@ -23,7 +33,6 @@ p, label, li, button, input[type='text'], span {
   background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
   padding: 8px;
   flex: 1;
-  overflow-x: scroll;
 }
 
 .map {
@@ -38,6 +47,7 @@ p, label, li, button, input[type='text'], span {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-bottom: solid 0.2em gold;
 }
 
 .navbrand {
@@ -46,7 +56,7 @@ p, label, li, button, input[type='text'], span {
   text-decoration: none;
 }
 
-ul {
+.nav {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -100,6 +110,10 @@ ul {
 
 }
 
+.wrapper {
+  overflow-y: hidden;
+
+}
 
 .list-item-action {
   display: flex;
@@ -203,22 +217,47 @@ ul {
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
+
+}
+
+.about-header {
+  background: rgb(67,27,84);
+  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
+  color: white;
+  padding: 18px;
+}
+
+.about-header > h3 {
+  color: gold;
+}
+
+.about-content {
+  color: #060415;
+  background: #f7f7f7;
 }
 
 .about-body {
   display: flex;
 }
-
 .image {
-  flex: 1;
+  flex: 2;
 }
 
 .info  {
-  flex: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+
+}
+
+.info > h3 {
+  color: #412364;
+}
+
+.info > ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .dummy {
@@ -246,4 +285,22 @@ ul {
   color: #666666;
   font-size: 24px;
   font-weight: bolder;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gold;
+}
+
+
+.instructions {
+  padding-left: 0.5em;
+}
+
+.instructions > li {
+  border-left: solid 0.2em rebeccapurple;
+  margin: 0.5em;
+  padding: 0.5em;
 }

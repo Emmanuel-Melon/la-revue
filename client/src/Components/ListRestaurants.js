@@ -13,19 +13,17 @@ const handleClick = (restaurant) => {
 const ListRestaurants = ({ restaurants }) => {
   return (
     <section className='list'>
-      <div>
-        {
-          restaurants.map(restaurant => {
-            return (
-              <RestaurantSummary
-                key={restaurant.id}
-                restaurant={{ ...restaurant }}
-                onClick={handleClick}
-              />
-            )
-          })
-        }
-      </div>
+      {
+        restaurants.map(restaurant => {
+          return (
+            <RestaurantSummary
+              key={restaurant.id}
+              restaurant={{ ...restaurant }}
+              onClick={handleClick}
+            />
+          )
+        })
+      }
     </section>
   )
 }

@@ -31,6 +31,9 @@ class App extends Component {
           <Route exact path='/about' component={AboutScreen} />
           <Route exact path='/restaurants' component={RestaurantsScreen} />
         </Switch>
+        <footer>
+          <p>OpenClassrooms 2019</p>
+        </footer>
       </Router>
     )
   }
