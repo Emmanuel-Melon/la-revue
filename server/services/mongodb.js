@@ -1,12 +1,22 @@
 const { MongoClient } = require('mongodb')
-const url = 'mongodb+srv://backend:Z*NsqgS5$@jHsF2@cluster0-itr9i.mongodb.net/test?retryWrites=true&w=majority'
-const name = 'development'
+
+/**
+ * mongodb environment variables
+ */
+const {
+  MONGO_DATABASE,
+  MONGO_HOST,
+  MONGO_PASSWORD,
+  MONGO_USER
+} = process.env
+
+const url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/test?retryWrites=true&w=majority`
 /**
  *
  * @constructor
  */
 const MongoDBService = function () {
-  this.name = name
+  this.name = MONGO_DATABASE
   this.url = url
   this.options = {
     useUnifiedTopology: true,
