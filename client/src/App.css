@@ -101,7 +101,7 @@ p, label, li, button, input[type='text'], span {
   padding: 0.5em;
   border-bottom: solid 0.2em rebeccapurple;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  word-wrap: break-spaces;
+  overflow-wrap: break-word;
   transition: all .3s ease-in-out;
 }
 
@@ -265,19 +265,18 @@ p, label, li, button, input[type='text'], span {
   height: auto;
 }
 
-.vert {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-}
-
 .controls {
   background: rgba(53, 15, 70, 0.85);
   padding: 8px;
   margin-bottom: 0.4em;
+}
+
+.controls > h1 {
   color: gold;
+}
+
+.controls > p {
+  color: #eeeeee;
 }
 
 .centered {
