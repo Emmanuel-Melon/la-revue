@@ -24,7 +24,11 @@ const Header = styled.h3`
   text-align: center;
 `
 
-
+/**
+ *
+ * @returns {*}
+ * @constructor
+ */
 const RestaurantsScreen = () => {
   return (
     <main>
