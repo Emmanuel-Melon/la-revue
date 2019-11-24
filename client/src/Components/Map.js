@@ -1,28 +1,28 @@
-import React from "react";
+import React from 'react'
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker,
   OverlayView
-} from "react-google-maps";
+} from 'react-google-maps'
 
-const { compose, withProps, withStateHandlers } = require("recompose");
+const { compose, withProps, withStateHandlers } = require('recompose')
 
 const getPixelPositionOffset = (width, height) => ({
   x: -(width / 2),
   y: -(height / 2)
-});
+})
 
 const handleClick = e => {
-  console.log("clicked!");
-};
+  console.log('clicked!')
+}
 
 const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
 const CustomSkinMap = withScriptjs(
   withGoogleMap(props => {
-    const { markers } = props;
+    const { markers } = props
     return (
       <GoogleMap
         defaultZoom={13}
@@ -33,69 +33,69 @@ const CustomSkinMap = withScriptjs(
           zoomControl: true,
           styles: [
             {
-              featureType: "water",
+              featureType: 'water',
               stylers: [
                 { saturation: 43 },
                 { lightness: -11 },
-                { hue: "#0088ff" }
+                { hue: '#0088ff' }
               ]
             },
             {
-              featureType: "road",
-              elementType: "geometry.fill",
+              featureType: 'road',
+              elementType: 'geometry.fill',
               stylers: [
-                { hue: "#ff0000" },
+                { hue: '#ff0000' },
                 { saturation: -100 },
                 { lightness: 99 }
               ]
             },
             {
-              featureType: "road",
-              elementType: "geometry.stroke",
-              stylers: [{ color: "#808080" }, { lightness: 54 }]
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{ color: '#808080' }, { lightness: 54 }]
             },
             {
-              featureType: "landscape.man_made",
-              elementType: "geometry.fill",
-              stylers: [{ color: "#ece2d9" }]
+              featureType: 'landscape.man_made',
+              elementType: 'geometry.fill',
+              stylers: [{ color: '#ece2d9' }]
             },
             {
-              featureType: "poi.park",
-              elementType: "geometry.fill",
-              stylers: [{ color: "#ccdca1" }]
+              featureType: 'poi.park',
+              elementType: 'geometry.fill',
+              stylers: [{ color: '#ccdca1' }]
             },
             {
-              featureType: "road",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#767676" }]
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{ color: '#767676' }]
             },
             {
-              featureType: "road",
-              elementType: "labels.text.stroke",
-              stylers: [{ color: "#ffffff" }]
+              featureType: 'road',
+              elementType: 'labels.text.stroke',
+              stylers: [{ color: '#ffffff' }]
             },
-            { featureType: "poi", stylers: [{ visibility: "off" }] },
+            { featureType: 'poi', stylers: [{ visibility: 'off' }] },
             {
-              featureType: "landscape.natural",
-              elementType: "geometry.fill",
-              stylers: [{ visibility: "on" }, { color: "#b8cb93" }]
+              featureType: 'landscape.natural',
+              elementType: 'geometry.fill',
+              stylers: [{ visibility: 'on' }, { color: '#b8cb93' }]
             },
-            { featureType: "poi.park", stylers: [{ visibility: "on" }] },
+            { featureType: 'poi.park', stylers: [{ visibility: 'on' }] },
             {
-              featureType: "poi.sports_complex",
-              stylers: [{ visibility: "on" }]
+              featureType: 'poi.sports_complex',
+              stylers: [{ visibility: 'on' }]
             },
-            { featureType: "poi.medical", stylers: [{ visibility: "on" }] },
+            { featureType: 'poi.medical', stylers: [{ visibility: 'on' }] },
             {
-              featureType: "poi.business",
-              stylers: [{ visibility: "simplified" }]
+              featureType: 'poi.business',
+              stylers: [{ visibility: 'simplified' }]
             }
           ]
         }}
       >
         {markers.map(marker => {
-          const { id, location } = marker;
-          return <Marker key={id} position={{ ...location }} />;
+          const { id, location } = marker
+          return <Marker key={id} position={{ ...location }} />
         })}
 
         <OverlayView
@@ -117,11 +117,11 @@ const CustomSkinMap = withScriptjs(
           </div>
         </OverlayView>
       </GoogleMap>
-    );
+    )
   })
-);
+)
 
-function Map({ ...props }) {
+function Map ({ ...props }) {
   return (
     <CustomSkinMap
       googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}`}
@@ -130,7 +130,7 @@ function Map({ ...props }) {
       mapElement={<div style={{ height: `100%` }} />}
       markers={props.markers}
     />
-  );
+  )
 }
 
-export default Map;
+export default Map

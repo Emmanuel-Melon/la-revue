@@ -1,7 +1,5 @@
 /**
-Fredericka+the+Great 6/10
-Love+Ya+Like+A+Sister 6/10
-Rye 8/10
+* global styles
  */
 @import url('https://fonts.googleapis.com/css?family=Rye|PT+Mono&display=swap');
 
@@ -14,6 +12,7 @@ html, body {
   width: 100%;
 }
 
+/* typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rye', sans-serif;
   font-weight: 700;
@@ -24,106 +23,15 @@ p, label, li, button, input[type='text'], span {
   font-size: 18px;
   font-family: 'PT Mono', sans-serif;
 }
-.wrapper {
-  height: 100%;
-  display: flex;
-}
 
-.sidebar {
-  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
-  padding: 8px;
-  flex: 1;
-}
-
-.map {
-  flex: 2;
-}
-
-.navbar {
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  padding: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: solid 0.2em gold;
-}
-
-.navbrand {
-  color: gold;
-  font-size: 24px;
-  text-decoration: none;
-}
-
-.nav {
+/* generic styles */
+ul {
   list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-.link {
-  margin: 0.5em;
-  text-decoration: none;
-  transition: all .4s ease-in-out;
-  padding: 8px;
-  color: gold;
-  border: solid 0.2em transparent;
-}
-
-.link:hover {
-  padding: 8px;
-  transform: scale(1.1);
-}
-
-
-
-.submit {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  width: 420px;
-  padding: 8px;
-  color: gold;
-  border-radius: 0.2em;
-  font-size: 18px;
-  border: solid 0.1em rgb(91,9,172);
-  margin: 0.5em;
-}
-
-.submit:hover {
-  cursor: pointer;
-}
-
-.list-item {
-  margin: 0.5em;
-  background: #fff;
-  padding: 0.5em;
-  border-bottom: solid 0.2em rebeccapurple;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  overflow-wrap: break-word;
-  transition: all .3s ease-in-out;
-}
-
-.list-item:hover {
-  cursor: pointer;
-
+  padding-left: 0;
 }
 
 .wrapper {
   overflow-y: hidden;
-
-}
-
-.list-item-action {
-  display: flex;
-  align-items: center;
-}
-
-.list-item-info {
-  display: flex;
-
-  justify-content: space-between;
 }
 
 .header {
@@ -134,64 +42,8 @@ p, label, li, button, input[type='text'], span {
   color: #666666;
 }
 
-.name {
-  color: #333;
-}
-
-.filter {
-  margin-bottom: 0.5em;
-}
-
-
 .ratings {
-
   color: rebeccapurple;
-}
-
-.types {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tag {
-  background: #eee;
-  font-size: 18px;
-  font-weight: 400;
-  color: rebeccapurple;
-  margin: 0.3em;
-  padding: 0.3em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all .3s ease-in-out;
-  border: solid 0.2em #37104a;
-}
-
-.tag:hover {
-  transform: scale(1.1);
-  background: gold;
-}
-
-.searchbar {
-  width: 98%;
-  border: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  padding: 8px;
-  font-size: 18px;
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  color: gold;
-}
-
-.recommended {
-  background: gold;
-  font-size: 18px;
-  width: 40%;
-  font-weight: 400;
-  color: rgb(67,27,84);
-  margin: 0.3em;
-  padding: 0.3em;
-  transition: all .3s ease-in-out;
-  border: solid 0.2em #37104a;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .open {
@@ -216,69 +68,6 @@ p, label, li, button, input[type='text'], span {
   text-align: center;
 }
 
-.about {
-
-}
-
-.about-header {
-  background: rgb(67,27,84);
-  background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  color: white;
-  padding: 18px;
-}
-
-.about-header > h3 {
-  color: gold;
-}
-
-.about-content {
-  color: #060415;
-  background: #f7f7f7;
-}
-
-.about-body {
-  display: flex;
-}
-.image {
-  flex: 2;
-}
-
-.info  {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 18px;
-
-}
-
-.info > h3 {
-  color: #412364;
-}
-
-.info > ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.dummy {
-  width: 100%;
-  height: auto;
-}
-
-.controls {
-  background: rgba(53, 15, 70, 0.85);
-  padding: 8px;
-  margin-bottom: 0.4em;
-}
-
-.controls > h1 {
-  color: gold;
-}
-
-.controls > p {
-  color: #eeeeee;
-}
-
 .centered {
   text-align: center;
   color: #666666;
@@ -293,13 +82,3 @@ footer {
   color: gold;
 }
 
-
-.instructions {
-  padding-left: 0.5em;
-}
-
-.instructions > li {
-  border-left: solid 0.2em rebeccapurple;
-  margin: 0.5em;
-  padding: 0.5em;
-}

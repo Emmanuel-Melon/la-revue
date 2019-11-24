@@ -1,17 +1,54 @@
 import React, { Component } from "react";
 import '../App.css'
 import { FaMapMarkerAlt, FaInfoCircle } from "react-icons/fa";
+
+/**
+ * components
+ */
 import Map from "../Components/Map";
-import SearchRestarants from "../Components/Search";
 import FilterComponent from "../Components/Filter";
 import ListRestaurants from "../Components/ListRestaurants";
-import RestaurantSkeleton from '../Components/RestaurantSkeleton'
 
 /**
  * utils
  */
 import API from '../Utils/api'
 
+/**
+ * styles
+ */
+import styled from 'styled-components'
+const MapWrapper = styled.section`
+  flex: 2;
+`
+const Sidebar = styled.aside`
+  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
+  padding: 8px;
+  flex: 1;
+`
+
+const SidebarHead = styled.div`
+  background: rgba(53, 15, 70, 0.85);
+  padding: 8px;
+  margin-bottom: 0.4em;
+`
+
+const Header = styled.h1`
+  color: gold;
+`
+
+const Text = styled.p`
+  color: #eeeeee;
+`
+
+const Wrapper = styled.main`
+  height: 100%;
+  display: flex;
+`
+
+/**
+ *
+ */
 class HomeScreen extends Component {
   constructor(props) {
     super(props);
@@ -84,28 +121,26 @@ class HomeScreen extends Component {
 
   render () {
     return (
-      <div>
-        <main className='wrapper'>
-          <section className='map'>
-            <Map
-              isMarkerShown
-              googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2IDnv8a9yaw4XPRSO4JgKYMuyqWhsEs'
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `100vh` }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-              markers={this.state.markers}
-            />
-          </section>
-          <section className='sidebar'>
-            <div className='controls'>
-              <h1><FaMapMarkerAlt /> {this.state.state.long_name}, {this.state.country.short_name}</h1>
-              <p><FaInfoCircle /> Click on the Map to add a new restaurant</p>
-            </div>
-            <FilterComponent />
-            <ListRestaurants restaurants={this.state.restaurants}/>
-          </section>
-        </main>
-      </div>
+      <Wrapper>
+        <MapWrapper>
+          <Map
+            isMarkerShown
+            googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2IDnv8a9yaw4XPRSO4JgKYMuyqWhsEs'
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `100vh` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+            markers={this.state.markers}
+          />
+        </MapWrapper>
+        <Sidebar>
+          <SidebarHead>
+            <Header><FaMapMarkerAlt /> {this.state.state.long_name}, {this.state.country.short_name}</Header>
+            <Text><FaInfoCircle /> Click on the Map to add a new restaurant</Text>
+          </SidebarHead>
+          <FilterComponent />
+          <ListRestaurants restaurants={this.state.restaurants}/>
+        </Sidebar>
+      </Wrapper>
     )
   }
 }
