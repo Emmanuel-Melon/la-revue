@@ -16,8 +16,9 @@ const getPixelPositionOffset = (width, height) => ({
 
 const handleClick = e => {
   console.log("clicked!");
-  console.log(e);
 };
+
+const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
 const CustomSkinMap = withScriptjs(
   withGoogleMap(props => {
@@ -123,8 +124,7 @@ const CustomSkinMap = withScriptjs(
 function Map({ ...props }) {
   return (
     <CustomSkinMap
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=KEY"
-      // Big man, please put my API key in an environement variable
+      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}`}
       loadingElement={<div style={{ height: `100%` }} />}
       containerElement={<div style={{ height: `100vh` }} />}
       mapElement={<div style={{ height: `100%` }} />}
