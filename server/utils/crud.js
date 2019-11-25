@@ -53,6 +53,22 @@ class DbWriteInterface {
     }
   }
 
+  async insertMany (data) {
+    try {
+      const col = DBProvider.findCollection(this.collection)
+      const doc = await col.insertMany(data)
+      return ({
+        doc,
+        error: null
+      })
+    } catch (error) {
+      return ({
+        doc: null,
+        error
+      })
+    }
+  }
+
   /**
    *
    * @param document
