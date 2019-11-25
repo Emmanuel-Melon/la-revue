@@ -72,7 +72,7 @@ const Recommended = styled.span`
 `
 
 const Heading = styled.h3`
-  color: #333;
+  color: #412364;
 `
 
 /**
@@ -95,6 +95,8 @@ const RestaurantSummary = (props) => {
   const click = useCallback(
     () => handleClick(prevState => {
       // set data to restaurant and pass over to other components
+      console.log('clicked man!')
+      console.log(restaurant)
     }),
     []
   )

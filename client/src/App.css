@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-p, label, li, button, input[type='text'], span {
+p, label, li, button, input[type='text'], span, a {
   font-weight: 400;
   font-size: 18px;
   font-family: 'PT Mono', sans-serif;
@@ -28,6 +28,10 @@ p, label, li, button, input[type='text'], span {
 ul {
   list-style-type: none;
   padding-left: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .wrapper {

@@ -22,6 +22,8 @@ const Navbrand = styled.h3`
   text-decoration: none;
 `
 
+// change to a element
+// handle active links
 const Link = styled.li`
   margin: 0.5em;
   text-decoration: none;
@@ -32,7 +34,13 @@ const Link = styled.li`
   
   &:hover {
     padding: 8px;
-    transform: scale(1.1);
+    transform: scale(1.3);
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+  &:active {
+  color: green;
   }
 `
 
@@ -56,8 +64,8 @@ const Navbar = () => {
       </div>
       <div>
         <Nav>
-          <Link><NavLink to='/about' className='link'>About</NavLink></Link>
-          <Link><NavLink to='/restaurants' className='link'>Restaurants</NavLink></Link>
+          <NavLink to='/about'><Link>About</Link></NavLink>
+          <NavLink to='/restaurants'><Link>Restaurants</Link></NavLink>
         </Nav>
       </div>
     </Header>
