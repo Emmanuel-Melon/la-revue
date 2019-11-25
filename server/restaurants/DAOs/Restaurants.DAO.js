@@ -17,9 +17,10 @@ class RestaurantsDAO {
    * @param restaurant
    * @returns {Promise<{error: *}|{doc: *, error: null}|{doc: null, error: *}>}
    */
-  async addRestaurant (restaurant) {
+  async addRestaurants (restaurant) {
     try {
-      return await this.dbWriteInterface.insertOne(restaurant)
+      // ensure uniqueness
+      return await this.dbWriteInterface.insertMany(restaurant)
     } catch (error) {
       return { error }
     }
@@ -30,7 +31,7 @@ class RestaurantsDAO {
    * @param restaurant
    * @returns {Promise<{error: *}|{doc: *, error: null}|{doc: null, error: *}>}
    */
-  async addRestaurants (restaurant) {
+  async addRestaurant (restaurant) {
     try {
       return await this.dbWriteInterface.insertOne(restaurant)
     } catch (error) {
