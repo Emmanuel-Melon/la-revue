@@ -1,11 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { FaArrowRight } from 'react-icons/fa'
 
 /**
  * components
  */
 import CustomButton from '../Components/CustomButton'
 import CustomImage from '../Components/CustomImage'
+import Fine from './fine.svg'
 
 /**
  * styles
@@ -29,13 +31,14 @@ display: flex;
 
 const AboutLeftPane = styled.div`
   flex: 2;
+  padding: 1em;
 `
 
 const AboutRightPange = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 18px;
+  padding: 1em;
 `
 
 const Heading = styled.h3`
@@ -46,12 +49,11 @@ const GreyHeading = styled.h3`
   color: #412364;
 `
 
-const Instructions = styled.ul`
-  padding-left: 0.5em;
-`
+const Instructions = styled.ul``
+
 const InstructionsItem = styled.li`
-  border-left: solid 0.2em rebeccapurple;
-  margin: 0.5em;
+  border-left: solid 0.3em rebeccapurple;
+  margin: 0.3em;
   padding: 0.5em;
 `
 
@@ -75,9 +77,10 @@ const About = () => {
         <AboutBody>
           <AboutLeftPane>
             <CustomImage
-              src='https://images.unsplash.com/photo-1526234362653-3b75a0c07438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80'
+              src={Fine}
               alt='a stock image of a restaurant'
             />
+            {/* <p>Image is Coutsey of <a href="https://undraw.io">unDraw</a></p> */}
           </AboutLeftPane>
           <AboutRightPange>
             <GreyHeading>How to use</GreyHeading>
@@ -87,7 +90,7 @@ const About = () => {
             </Instructions>
             <NavLink to='/'>
               <CustomButton>
-                Get Started
+                <FaArrowRight /> Get Started
               </CustomButton>
             </NavLink>
             <GreyHeading>Disclaimer</GreyHeading>
