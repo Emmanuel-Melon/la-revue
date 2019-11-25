@@ -1,16 +1,18 @@
 import axios from 'axios'
+const urlsMap = new Map();
 
+urlsMap.set('base', 'http://localhost:5000')
+urlsMap.set('google', 'https://www.googleapis.com')
+
+/**
+ *
+ */
 class API {
-  constructor (resource) {
-    this.baseUrl = 'http://localhost:5000'
+  constructor (options) {
+    const { resource, source } = options
     this.resource = resource
-
-    // base axios instance
     this.baseInstance = axios.create({
-      baseURL: this.baseUrl,
-      headers: {
-        // Google API keys
-      }
+      baseURL: urlsMap.get(source)
     })
   }
 
@@ -30,9 +32,10 @@ class API {
 
   async postData (data) {
     try {
-      const response = await this.baseInstance.post(`${this.resource}`, data)
+      const response = await this.baseInstance.post(`http://localhost:5000${this.resource}`, data)
+      const { data: { responseBody} } = response
       return {
-        ...response
+        ...responseBody
       }
     } catch (error) {
       console.log(error)
@@ -52,13 +55,6 @@ class API {
     }
   }
 
-  async customGet (endpoint) {
-    try {
-      return await axios.get(endpoint)
-    } catch (error) {
-      return error
-    }
-  }
 }
 
 export default API
