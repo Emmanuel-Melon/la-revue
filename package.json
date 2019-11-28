@@ -4,6 +4,7 @@
   "description": "A restaurant review web application",
   "main": "server.js",
   "scripts": {
+    "start": "node ./server/server.js",
     "test": "jest --verbose ./server"
   },
   "repository": {
