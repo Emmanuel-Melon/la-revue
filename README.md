@@ -12,6 +12,9 @@ La Revue is a fictional restaurant reviewing website that allows users to anonym
 - To separate concerns, reviews get added to a custom database instead of the actual restaurant to prevent unwanted reviews.
 - No authentication mechanism has been implemented, all reviews are completely anonymous.
 
+## Live Demo
+The app is deployed on heroku and can be found at this **[URL](https://morning-beach-13124.herokuapp.com/)**
+
 ## Running locally
 
 You will need the following dependencies installed on your system.
