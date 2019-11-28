@@ -2,6 +2,7 @@
 A restaurant review website.  
 Part of OpenClassroom's Front-End Developer diploma program.
 
+![Image description](./screenshot.png)
 
 ## Overview
 
