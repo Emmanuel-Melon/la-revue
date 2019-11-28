@@ -9,8 +9,7 @@ const path = require('path')
  * @param app
  */
 const middleware = app => {
-  // app.use(express.static(path.resolve(__dirname, '../../client/build'))
-  console.log(path.resolve(__dirname, '../../client/build'))
+  app.use(express.static(path.resolve(__dirname, '../../client/build')))
   app.use(cors())
   app.use(helmet())
   app.use(bodyParser.json())
