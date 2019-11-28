@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./server/server.js",
-    "test": "jest --verbose ./server"
+    "test": "jest --verbose ./server",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "repository": {
     "type": "git",
