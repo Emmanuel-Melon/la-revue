@@ -56,7 +56,9 @@ class DbWriteInterface {
   async insertMany (data) {
     try {
       const col = DBProvider.findCollection(this.collection)
-      const doc = await col.insertMany(data)
+      const doc = await col.updateMany({},
+        { $set: [...data] },
+        { upsert: true })
       return ({
         doc,
         error: null

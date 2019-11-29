@@ -35,6 +35,11 @@ const getRestaurants = async (req, res) => {
     const [ address ] = data.results
     const { address_components } = address
 
+    const hasPhotos = results.filter(result => {
+      return result.hasOwnProperty('photos')
+    })
+
+
     const [country] = address_components.filter(component => {
       return component.types.includes('administrative_area_level_1')
     })
@@ -52,7 +57,7 @@ const getRestaurants = async (req, res) => {
         country,
         state,
         coords,
-        restaurants: results
+        restaurants: results //supposed to come from db
       }
     })
   } catch (error) {

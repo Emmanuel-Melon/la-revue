@@ -60,7 +60,7 @@ const RestaurantsScreen = () => {
 
       const radius = 500
       const type = 'restaurant'
-      const location = {lat: 0.32358400000000004, lng: 32.5935104}
+      const location = { lat: 0.32358400000000004, lng: 32.5935104 }
       const data = await api.postData({
         radius,
         type,

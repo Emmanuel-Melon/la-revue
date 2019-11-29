@@ -1,5 +1,5 @@
 import axios from 'axios'
-const urlsMap = new Map();
+const urlsMap = new Map()
 
 urlsMap.set('base', 'http://localhost:5000')
 urlsMap.set('google', 'https://www.googleapis.com')
@@ -32,8 +32,9 @@ class API {
 
   async postData (data) {
     try {
+      console.log(data)
       const response = await this.baseInstance.post(`http://localhost:5000${this.resource}`, data)
-      const { data: { responseBody} } = response
+      const { data: { responseBody } } = response
       return {
         ...responseBody
       }
@@ -54,7 +55,6 @@ class API {
       return error
     }
   }
-
 }
 
 export default API

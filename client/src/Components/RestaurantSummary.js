@@ -88,20 +88,12 @@ const Heading = styled.h3`
  * @constructor
  */
 const RestaurantSummary = (props) => {
-  const { restaurant } = props
+  const { onClick, restaurant } = props
   const { opening_hours } = restaurant
 
   const [data, handleClick] = useState(null)
-  const click = useCallback(
-    () => handleClick(prevState => {
-      // set data to restaurant and pass over to other components
-      console.log('clicked man!')
-      console.log(restaurant)
-    }),
-    []
-  )
   return (
-    <RestaurantCard onClick={click}>
+    <RestaurantCard onClick={() => onClick(restaurant)}>
       <RestaurantInfo>
         <div>
           <Heading>
