@@ -1,4 +1,9 @@
-import React, { Component } from 'react'
+import React, {
+  useState,
+  createContext,
+  useEffect,
+  useContext
+} from 'react'
 import './App.css'
 
 // improve ux by adding instructions above the filter button
@@ -21,22 +26,20 @@ import RestaurantsScreen from './Screens/Restaurants'
 import Navabar from './Components/Navbar'
 
 // use context to set user current location
-class App extends Component {
-  render () {
-    return (
-      <Router>
-        <Navabar />
-        <Switch>
-          <Route exact path='/' component={HomeScreen} />
-          <Route exact path='/about' component={AboutScreen} />
-          <Route exact path='/restaurants' component={RestaurantsScreen} />
-        </Switch>
-        <footer>
-          <p>OpenClassrooms 2019</p>
-        </footer>
-      </Router>
-    )
-  }
+const App = () => {
+  return (
+    <Router>
+      <Navabar />
+      <Switch>
+        <Route exact path='/' component={HomeScreen} />
+        <Route exact path='/about' component={AboutScreen} />
+        <Route exact path='/restaurants' component={RestaurantsScreen} />
+      </Switch>
+      <footer>
+        <p>OpenClassrooms 2019</p>
+      </footer>
+    </Router>
+  )
 }
 
 export default App
