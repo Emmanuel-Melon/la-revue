@@ -10,72 +10,68 @@ import {
   OverlayView
 } from 'react-google-maps'
 
-const {
+import {
   compose,
   withStateHandlers
-} = require('recompose')
+} from 'recompose'
 
-// centers overlay
-const getPixelPositionOffset = (height, width) => ({
-  x: -(width / 2),
-  y: -(height / 2),
-})
+import { ContextConsumer } from '../Screens/Home'
 
-const handleClick = e => {
-  console.log('clicked!')
-  // const { target } = e
-  console.log(e)
+const getPixelPositionOffset = (height, width) => {
+  // ! hard coded values
+  return ({ x: width - 650, y: -280 })
 }
 
 // callback that sends back info to parent component?
-const Map = (props) => {
-  const {
-    children,
-    markers,
-    location,
-    zoom
-  } = props
-
-
+const Map = ({ children }) => {
   // component has updated man!
+  // center={new google.maps.LatLng(lat, lng)}
+  // update center
   useEffect(() => {
-    const { lat, lng } = location
-    console.log(lat)
-    console.log(lng)
-  })
+  }, [])
+
+  // {lat: 0.32358400000000004, lng: 32.5935104}
 
   return (
-    <GoogleMap
-      defaultZoom={zoom}
-      defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
-      onClick={handleClick}
-    >
+    <ContextConsumer>
+      { context => {
+        {
+          const { zoom, location, onMapClick, markers, onOverlayClick } = context
+          return (
+            <GoogleMap
+              defaultZoom={zoom}
+              defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
+              onClick={onMapClick}
+            >
 
-      {markers.map(marker => {
-        const { id, location } = marker
-        return <Marker key={id} position={{ ...location }} />
-      })}
-      <OverlayView
-        defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
-        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-        getPixelPositionOffset={getPixelPositionOffset}
-      >
-        {children}
-      </OverlayView>
-    </GoogleMap>
+              <OverlayView
+                position={{ lat: 0.32358400000000004, lng: 32.5935104 }}
+                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                getPixelPositionOffset={getPixelPositionOffset}
+                onOverlayClick={onOverlayClick}
+              >
+                {children}
+              </OverlayView>
+              {markers && markers.map(marker => {
+                const { id, location } = marker
+                return <Marker key={id} position={{ ...location }} />
+              })}
+
+            </GoogleMap>
+          )
+        }
+      }}
+    </ContextConsumer>
   )
 }
 
 const OverlayedMap = compose(
-  withStateHandlers(() => ({
-    selectedRestaurant: {},
-  }), {
-    onClick: ({ selectedRestaurant }) => () => ({
-      //
-    })
-  }),
   withScriptjs,
   withGoogleMap
 )(Map)
 
 export default OverlayedMap
+
+/**
+
+ */
