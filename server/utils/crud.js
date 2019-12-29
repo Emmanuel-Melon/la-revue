@@ -55,10 +55,9 @@ class DbWriteInterface {
 
   async insertMany (data) {
     try {
+      console.log(data)
       const col = DBProvider.findCollection(this.collection)
-      const doc = await col.updateMany({},
-        { $set: [...data] },
-        { upsert: true })
+      const doc = await col.insertMany(data)
       return ({
         doc,
         error: null
@@ -151,6 +150,7 @@ class DbReadInterface {
   aggregateById (document, field) {
     const col = DBProvider.findCollection(this.collection)
     const query = {}
+    query[field] = document
     return col.aggregate(
       [ { $match: query } ]
     )
@@ -164,6 +164,11 @@ class DbReadInterface {
   findOneById (document) {
     const col = DBProvider.findCollection(this.collection)
     return col.find({ _id: ObjectID(document) })
+  }
+
+  find (query) {
+    const col = DBProvider.findCollection(this.collection)
+    return col.find(query)
   }
 }
 

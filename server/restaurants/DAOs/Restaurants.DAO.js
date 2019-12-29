@@ -14,13 +14,13 @@ class RestaurantsDAO {
 
   /**
    *
-   * @param restaurant
    * @returns {Promise<{error: *}|{doc: *, error: null}|{doc: null, error: *}>}
+   * @param restaurants
    */
-  async addRestaurants (restaurant) {
+  async addRestaurants (restaurants) {
     try {
       // ensure uniqueness
-      return await this.dbWriteInterface.insertOne(restaurant)
+      return await this.dbWriteInterface.insertMany(restaurants, { "ordered": false })
     } catch (error) {
       return { error }
     }
@@ -40,13 +40,14 @@ class RestaurantsDAO {
   }
 
   /**
-   *
-   * @param locationId
+   * ! retrieves everything in the database, no specific query has been provided
    * @returns {Promise<{error: *}>}
    */
-  async getRestaurants (locationId) {
+  async getRestaurants (location) {
     try {
-      return await this.dbReadInterface.findOneById(locationId)
+      console.log(location)
+      const cursor = await this.dbReadInterface.find(location)
+      return await cursor.toArray()
     } catch (error) {
       return { error }
     }
