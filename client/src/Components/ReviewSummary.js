@@ -1,28 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Rating from "./Ratings"
+import CustomImage from "./CustomImage"
+import Moment from 'moment';
+
+import { FaUserAlt } from 'react-icons/fa'
+
 const ReviewBody = styled.article`
-  border: solid 0.2em #37104a;
-  padding: 0.5em;
+  padding: 0.3em;
   display: flex;
 `
 
-const ReviewUser = styled.div`
-flex: 1;
+const ReviewContent = styled.div`
+  & div {
+    padding-left: 1em;
+  }
+  flex: 2;
 `
 
-const ReviewContent = styled.div`
-flex: 2;
+const ReviewUser = styled.div`
+  padding-left: 0.3em;
+  flex: 1;
+  
+  & p {
+  text-align: center;
+  }
 `
-const ReviewSummary = (props) => {
-  console.log(props)
+
+const Avatar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const ReviewSummary = ({ review }) => {
   return (
     <ReviewBody>
       <ReviewUser>
-        <h3>Anyonmous</h3>
+        <Avatar>
+          <FaUserAlt size='3em' />
+        </Avatar>
+        <p>Anonymous</p>
       </ReviewUser>
       <ReviewContent>
-        <p>{props.name}</p>
+        <div>
+          <p>{review.text}</p>
+          <p>{Moment(review.timestamp).calendar()}</p>
+        </div>
       </ReviewContent>
     </ReviewBody>
   )

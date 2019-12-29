@@ -7,17 +7,28 @@ import React, {
 
 import { FaEdit, FaHamburger, FaMapMarkerAlt } from 'react-icons/fa'
 
-import { ContextConsumer } from '../Screens/Home'
-
 import styled from 'styled-components'
 import CustomButton from './CustomButton'
 import ReviewSummary from './ReviewSummary'
 import API from "../Utils/api";
+
+
 const RestaurantView = styled.section`
   background: #ffffff;
   padding: 1.5em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border: solid 0.2em #37104a;
+  overflow-y: scroll;
+  min-width: 200px;
+  max-width: 500px;
+  
+  & h3 {
+    font-size: 24px;
+  }
+  
+  & h4 {
+  font-size: 18px;
+  }
 `
 
 const ResaurantActions = styled.div`
@@ -34,7 +45,7 @@ const Input = styled.input`
 `
 
 const RestaurantInfo = ({ city, country, restaurant }) => {
-  const [name, setName] = useState('')
+  const [isLoading, setLoading] = useState(false)
   const [reviews, setReviews] = useState([])
   const [error, setError] = useState(null)
   const [images, setImages] = useState([])
@@ -43,23 +54,25 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
 
   const handleInputChange = e => {
     const { target: { name, value } } = e
-    setName(value);
+    setText(value);
   }
 
 
   const addReview = async () => {
     try {
-      console.log('adding review!')
       const api = new API({
         resource: 'reviews/add',
         source: 'base'
       })
-
-      const response = await api.postData({
-        name,
-        ...restaurant
-      })
-      console.log(response)
+      const { id } = restaurant
+      const review = {
+        text,
+        restaurantId: id,
+        timestamp: Date.now()
+      }
+      const response = await api.postData(review)
+      setText('')
+      setReviews([review, ...reviews])
     } catch (error) {
       setError(error)
     }
@@ -67,16 +80,15 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
 
   const getReviews = async () => {
     try {
-      console.log('adding review!')
       const api = new API({
         resource: `reviews/${restaurant.id}`,
         source: 'base'
       })
-
+      setLoading(true)
       const response = await api.fetchData()
       const data = response.data.responseBody
-      console.log(response)
       setReviews(data.reviews)
+      setLoading(false)
     } catch (error) {
       setError(error)
     }
@@ -84,41 +96,53 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
 
   useEffect(() => {
     getReviews()
-  }, [])
+  }, [restaurant])
 
-  console.log(reviews)
+
+  // check if the restaurant object is empty
+  if(Object.entries(restaurant).length === 0 && restaurant.constructor === Object) {
+    return null
+  }
 
   return (
-    <RestaurantView>
-      <div>
-        <h3><FaHamburger /> {restaurant.name}</h3>
-        <p ><FaMapMarkerAlt /> {restaurant.vicinity}</p>
-      </div>
-      <div />
-      { /*
-      display images here
-            <div>
-        {photos && photos.map(photo => {
-          return <img key={restaurant.place_id} src={photo.photo_reference} alt='some restaurant' />
-        })}
-      </div>
-      */}
-      <div>
-        { reviews && reviews.map(review => {
-          return <ReviewSummary review={....review} key={review._id} />
-        })}
-      </div>
-      <ResaurantActions>
-        <Input
-          type='text'
-          placeholder='review body'
-          onChange={handleInputChange}
-          name='review'
-          value={name}
-        />
-        <CustomButton onClick={addReview}><FaEdit /> Add Review</CustomButton>
-      </ResaurantActions>
-    </RestaurantView>
+    <div>
+      { !isLoading ? (
+        <RestaurantView>
+          <div>
+            <h3>{restaurant.name}</h3>
+          </div>
+          <div />
+          <div>
+            {
+              reviews.length === 0 ? (
+                <div>
+                  <p>This restaurant has no reviews</p>
+                </div>
+              ) : (
+                reviews.map(review => {
+                  return <ReviewSummary review={{...review}} key={review._id} />
+                })
+              )
+            }
+          </div>
+          <ResaurantActions>
+            <Input
+              type='text'
+              placeholder='Your review'
+              onChange={handleInputChange}
+              name='review'
+              value={text}
+            />
+            <CustomButton onClick={addReview}><FaEdit /> Add Review</CustomButton>
+          </ResaurantActions>
+        </RestaurantView>
+      ) : (
+        <RestaurantView>
+          <h3>Loading Restaurant</h3>
+        </RestaurantView>
+      )
+      }
+    </div>
   )
 }
 

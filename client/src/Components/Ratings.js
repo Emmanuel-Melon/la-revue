@@ -8,7 +8,7 @@ class Rating extends Component {
       <Ratings
         rating={this.props.rating}
         widgetRatedColors='#37104a'
-        widgetDimensions='30px'
+        widgetDimensions='20px'
       >
         <Ratings.Widget />
         <Ratings.Widget />
