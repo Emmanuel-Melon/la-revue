@@ -32,6 +32,7 @@
   text-align: center;
 }
 
+
 .centered {
   text-align: center;
   color: #666666;
@@ -46,3 +47,7 @@ footer {
   color: gold;
 }
 
+
+main, section {
+  overflow-y: hidden;
+}

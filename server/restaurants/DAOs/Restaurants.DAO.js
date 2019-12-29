@@ -20,7 +20,7 @@ class RestaurantsDAO {
   async addRestaurants (restaurant) {
     try {
       // ensure uniqueness
-      return await this.dbWriteInterface.insertMany(restaurant)
+      return await this.dbWriteInterface.insertOne(restaurant)
     } catch (error) {
       return { error }
     }

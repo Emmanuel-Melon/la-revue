@@ -67,6 +67,8 @@ export const ContextConsumer = Consumer
  * ! an indicator of a memory leak due to an async operation
  */
 const HomeScreen = () => {
+
+  console.log(key)
   /**
    * hooks
    */
@@ -187,3 +189,5 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
+
+//

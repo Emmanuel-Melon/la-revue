@@ -15,14 +15,14 @@ const ReviewContent = styled.div`
 flex: 2;
 `
 const ReviewSummary = (props) => {
-  const { content, user } = props
+  console.log(props)
   return (
     <ReviewBody>
       <ReviewUser>
-        <h3>{user.name}</h3>
+        <h3>Anyonmous</h3>
       </ReviewUser>
       <ReviewContent>
-        <p>{content.text}</p>
+        <p>{props.name}</p>
       </ReviewContent>
     </ReviewBody>
   )

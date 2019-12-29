@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaKeyboard } from 'react-icons/fa'
+import { FaKeyboard, FaPlus } from 'react-icons/fa'
 import CustomButton from './CustomButton'
 import API from '../Utils/api'
 
@@ -21,8 +21,7 @@ const Input = styled.input`
 `
 
 const AddRestaurant = () => {
-  const [name, setName] = useState('le')
-  const [type, setType] = useState('ad')
+  const [name, setName] = useState('')
   const [error, setError] = useState(null)
 
   const addRestaurant = async () => {
@@ -33,27 +32,30 @@ const AddRestaurant = () => {
         source: 'base'
       })
 
-      await api.postData({
-        name,
-        type
+      const response = await api.postData({
+        name
       })
+      console.log(response)
     } catch (error) {
       setError(error)
     }
   }
 
   const handleInputChange = e => {
-    //
-    console.log('handling change')
-    console.log(e)
+    const { target: { value } } = e
+    setName(value);
   }
 
   return (
     <Wrapper>
       <h3>Add Restaurant</h3>
-      <Input type='text' placeholder='restaurant name' value={name} onChange={handleInputChange} />
-      <Input type='text' placeholder='establishment type' value={type} onChange={handleInputChange} />
-      <CustomButton onClick={addRestaurant}><FaKeyboard /> Add Restaurant</CustomButton>
+      <Input
+        type='text'
+        placeholder='restaurant name'
+        value={name} onChange={handleInputChange}
+        name='restaurant'
+      />
+      <CustomButton onClick={() => addRestaurant()}><FaPlus /> Add Restaurant</CustomButton>
     </Wrapper>
   )
 }
