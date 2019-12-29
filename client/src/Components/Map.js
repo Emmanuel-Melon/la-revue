@@ -41,7 +41,6 @@ const Map = ({ children }) => {
             <GoogleMap
               defaultZoom={zoom}
               defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
-              onClick={onMapClick}
             >
 
               <OverlayView

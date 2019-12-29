@@ -1,7 +1,7 @@
 import axios from 'axios'
 const urlsMap = new Map()
 
-urlsMap.set('base', 'http://localhost:5000')
+urlsMap.set('base', 'http://localhost:5000/api/')
 urlsMap.set('google', 'https://www.googleapis.com')
 
 /**
@@ -18,7 +18,9 @@ class API {
 
   async fetchData () {
     try {
+      console.log(this.resource)
       const response = await this.baseInstance.get(this.resource)
+      console.log(response)
       return {
         ...response
       }
@@ -33,7 +35,7 @@ class API {
   async postData (data) {
     try {
       console.log(data)
-      const response = await this.baseInstance.post(`http://localhost:5000${this.resource}`, data)
+      const response = await this.baseInstance.post(this.resource, data)
       const { data: { responseBody } } = response
       return {
         ...responseBody

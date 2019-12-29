@@ -151,7 +151,6 @@ class DbReadInterface {
   aggregateById (document, field) {
     const col = DBProvider.findCollection(this.collection)
     const query = {}
-    query[field] = ObjectID(document)
     return col.aggregate(
       [ { $match: query } ]
     )

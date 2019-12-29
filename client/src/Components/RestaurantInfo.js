@@ -12,6 +12,7 @@ import { ContextConsumer } from '../Screens/Home'
 import styled from 'styled-components'
 import CustomButton from './CustomButton'
 import ReviewSummary from './ReviewSummary'
+import API from "../Utils/api";
 const RestaurantView = styled.section`
   background: #ffffff;
   padding: 1.5em;
@@ -33,21 +34,60 @@ const Input = styled.input`
 `
 
 const RestaurantInfo = ({ city, country, restaurant }) => {
+  const [name, setName] = useState('')
+  const [reviews, setReviews] = useState([])
+  const [error, setError] = useState(null)
   const [images, setImages] = useState([])
   const [text, setText] = useState('')
   const photos = restaurant.photos
-  const reviews = restaurant.reviews
 
   const handleInputChange = e => {
-    //
-    console.log('handling change')
-    console.log(e)
+    const { target: { name, value } } = e
+    setName(value);
+  }
+
+
+  const addReview = async () => {
+    try {
+      console.log('adding review!')
+      const api = new API({
+        resource: 'reviews/add',
+        source: 'base'
+      })
+
+      const response = await api.postData({
+        name,
+        ...restaurant
+      })
+      console.log(response)
+    } catch (error) {
+      setError(error)
+    }
+  }
+
+  const getReviews = async () => {
+    try {
+      console.log('adding review!')
+      const api = new API({
+        resource: `reviews/${restaurant.id}`,
+        source: 'base'
+      })
+
+      const response = await api.fetchData()
+      const data = response.data.responseBody
+      console.log(response)
+      setReviews(data.reviews)
+    } catch (error) {
+      setError(error)
+    }
   }
 
   useEffect(() => {
-    // do this on the server side
-    //
+    getReviews()
   }, [])
+
+  console.log(reviews)
+
   return (
     <RestaurantView>
       <div>
@@ -65,12 +105,18 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
       */}
       <div>
         { reviews && reviews.map(review => {
-          return <ReviewSummary review={review} key={review._id} />
+          return <ReviewSummary review={....review} key={review._id} />
         })}
       </div>
       <ResaurantActions>
-        <Input type='text' placeholder='Add Review' value={text} onChange={handleInputChange} />
-        <CustomButton><FaEdit /> Add Review</CustomButton>
+        <Input
+          type='text'
+          placeholder='review body'
+          onChange={handleInputChange}
+          name='review'
+          value={name}
+        />
+        <CustomButton onClick={addReview}><FaEdit /> Add Review</CustomButton>
       </ResaurantActions>
     </RestaurantView>
   )

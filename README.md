@@ -34,3 +34,4 @@ You will need the following dependencies installed on your system.
 - MongoDB for the database.
 - React and styled-components for the frontend.
 - Google Maps, Google Places, Google Geolocation and Google Geocoding APIs.
+

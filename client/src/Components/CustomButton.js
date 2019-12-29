@@ -18,10 +18,12 @@ const Button = styled.button`
   }
 `
 
-const CustomButton = ({ children }) => {
-  return <Button>
-    {children}
-  </Button>
+const CustomButton = ({ children, onClick }) => {
+  return (
+    <Button onClick={onClick}>
+      {children}
+    </Button>
+  )
 }
 
 export default CustomButton

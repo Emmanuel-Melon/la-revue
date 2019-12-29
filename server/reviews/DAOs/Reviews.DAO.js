@@ -64,6 +64,7 @@ class ReviewsDAO {
       const aggregationCursor = await this.dbReadInterface.aggregateById(restaurantId)
       return await aggregationCursor.toArray()
     } catch (error) {
+      console.log(error)
       return { error }
     }
   }

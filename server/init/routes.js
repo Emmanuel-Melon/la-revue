@@ -6,8 +6,8 @@ const restaurantsRouter = require('../restaurants/routes')
  * @param app
  */
 const routes = app => {
-  app.use('/restaurants', restaurantsRouter)
-  app.use('/reviews', reviewsRouter)
+  app.use('/api/restaurants', restaurantsRouter)
+  app.use('/api/reviews', reviewsRouter)
 }
 
 module.exports = routes

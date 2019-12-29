@@ -4,10 +4,7 @@ const reviewsRouter = express.Router()
 /**
  * controllers
  */
-const addReview = require('./controllers/addReview.controller')
-const getReview = require('./controllers/getReview.controller')
-const getReviews = require('./controllers/getReviews.controller')
-const removeReview = require('./controllers/removeReview.controller')
+const ReviewController = require('./controllers/Review.controller')
 
 /************************************************************************
  * * **************************** DELETE ROUTES  ****************************
@@ -19,7 +16,7 @@ const removeReview = require('./controllers/removeReview.controller')
  * @method DELETE
  * @type {Router}
  */
-reviewsRouter.delete('/:reviewId', removeReview)
+reviewsRouter.delete('/:reviewId', ReviewController.removeReview)
 
 /************************************************************************
  * * **************************** GET ROUTES  ****************************
@@ -27,19 +24,11 @@ reviewsRouter.delete('/:reviewId', removeReview)
  */
 /**
  * @access private
- * @description gets review
- * @method GET
- * @type {Router}
- */
-reviewsRouter.get('/:reviewId', getReview)
-
-/**
- * @access private
  * @description gets all review
  * @method GET
  * @type {Router}
  */
-reviewsRouter.get('/', getReviews)
+reviewsRouter.get('/:restaurantId', ReviewController.getReviews)
 
 /************************************************************************
  * * **************************** PUT ROUTES  ****************************
@@ -65,6 +54,6 @@ reviewsRouter.put('/:reviewId', (req, res) => {
  * @method POST
  * @type {Router}
  */
-reviewsRouter.post('/:restaurantId', addReview)
+reviewsRouter.post('/add', ReviewController.addReview)
 
 module.exports = reviewsRouter
