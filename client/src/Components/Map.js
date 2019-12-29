@@ -1,6 +1,5 @@
 import React, {
-  useEffect,
-  useState
+  useEffect
 } from 'react'
 import {
   withScriptjs,
@@ -12,25 +11,18 @@ import {
 
 import {
   compose,
-  withStateHandlers
 } from 'recompose'
 
 import { ContextConsumer } from '../Screens/Home'
 
-const getPixelPositionOffset = (height, width) => {
-  // ! hard coded values
-  return ({ x: width - 650, y: -280 })
-}
+const getPixelPositionOffset = (width, height) => ({
+  x: -(width /2),
+  y: -(height/2),
+})
 
-// callback that sends back info to parent component?
 const Map = ({ children }) => {
-  // component has updated man!
-  // center={new google.maps.LatLng(lat, lng)}
-  // update center
   useEffect(() => {
   }, [])
-
-  // {lat: 0.32358400000000004, lng: 32.5935104}
 
   return (
     <ContextConsumer>
@@ -41,6 +33,7 @@ const Map = ({ children }) => {
             <GoogleMap
               defaultZoom={zoom}
               defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
+              onClick={onMapClick}
             >
 
               <OverlayView
@@ -70,7 +63,3 @@ const OverlayedMap = compose(
 )(Map)
 
 export default OverlayedMap
-
-/**
-
- */

@@ -15,6 +15,7 @@ import FilterComponent from '../Components/Filter'
 import ListRestaurants from '../Components/ListRestaurants'
 import RestaurantInfo from '../Components/RestaurantInfo'
 import AddRestaurant from '../Components/AddRestaurant'
+import NoData from '../Components/NoData'
 
 /**
  * utils
@@ -29,11 +30,12 @@ const MapWrapper = styled.section`
   flex: 2;
 `
 const Sidebar = styled.aside`
-  background-image: url("https://img.freepik.com/free-vector/flat-tropical-fruits-pattern_23-2148142993.jpg?size=338&ext=jpg");
+  background-image: url("https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
   background-size: contain;
   background-attachment: scroll;
   padding: 8px;
   flex: 1;
+  overflow-y: scroll;
 `
 
 const SidebarHead = styled.div`
@@ -61,14 +63,8 @@ const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
  */
 const HomeContext = createContext(null)
 const { Consumer, Provider } = HomeContext
-export const ContextConsumer = Consumer
 
-/**
- * ! an indicator of a memory leak due to an async operation
- */
 const HomeScreen = () => {
-
-  console.log(key)
   /**
    * hooks
    */
@@ -84,22 +80,35 @@ const HomeScreen = () => {
   const [zoom, setZoom] = useState(13)
   const [mapLoading, setMapLoading] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
+  const [restaurantName, setName] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const onOverlayClick = e => {
     console.log('clicked overlay!')
     console.log(e)
+    setModalVisible(true)
   }
   const onMapClick = e => {
-    console.log('map has been clicked!')
-    console.log(e)
-    setModalVisible(!modalVisible)
-    console.log(modalVisible)
+    setModalVisible(true)
   }
 
   const onRestaurantSelect = restaurant => {
-    console.log('restaurant has been selected!')
-    console.log(restaurant)
     setSelectedRestaurant(restaurant)
+  }
+
+  const addRestaurant = async restaurant => {
+    try {
+      const api = new API({
+        resource: 'restaurants/add',
+        source: 'base'
+      })
+      const response = await api.postData(restaurant)
+      setRestaurants(restaurants)
+      setSuccessMessage('Restaurant Added')
+    } catch (error) {
+      setErrorMessage(error)
+    }
   }
 
   const apiCall = async () => {
@@ -116,7 +125,6 @@ const HomeScreen = () => {
       setMapLoading(true)
       const geolocation = await api.customPost(`https://www.googleapis.com/geolocation/v1/geolocate?key=${key}`)
       setMapLoading(false)
-      console.log(geolocation)
       const { data: { location } } = geolocation
 
       const { coords, restaurants, country, state } = await api.postData({
@@ -132,7 +140,6 @@ const HomeScreen = () => {
       setCoords(coords)
       setLocation(location)
     } catch (error) {
-      console.log(error)
       setErrors(true)
     }
   }
@@ -140,6 +147,12 @@ const HomeScreen = () => {
   useEffect(() => {
     apiCall()
   }, [])
+
+  console.log(restaurants)
+
+  if(hasError) {
+    return <h3>Failed to load</h3>
+  }
 
   return (
     <Provider value={{
@@ -152,7 +165,8 @@ const HomeScreen = () => {
       selectedRestaurant,
       country,
       city,
-      onOverlayClick
+      onOverlayClick,
+      addRestaurant
     }}>
       <Wrapper>
         <MapWrapper>
@@ -169,25 +183,27 @@ const HomeScreen = () => {
                 country={country}
                 restaurant={selectedRestaurant}
               />
-              <AddRestaurant />
+              { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
             </div>
           </OverlayedMap>
         </MapWrapper>
         <Sidebar>
-          <SidebarHead>
-            <Header><FaMapMarkerAlt /> {city.long_name}, {country.short_name}</Header>
-            <Text><FaInfoCircle /> Click on the Map to add a new restaurant</Text>
-          </SidebarHead>
-          <FilterComponent />
-          <ListRestaurants
-            restaurants={restaurants}
-          />
+              <div>
+                <SidebarHead>
+                  <Header><FaMapMarkerAlt /> {city.long_name}, {country.short_name}.</Header>
+                  <Text><FaInfoCircle /> Click on the Map to add a new restaurant.</Text>
+                  <Text><FaInfoCircle /> Click on a restaurant to view its details.</Text>
+                </SidebarHead>
+                <FilterComponent />
+                <ListRestaurants
+                  restaurants={restaurants}
+                />
+              </div>
         </Sidebar>
       </Wrapper>
     </Provider>
   )
 }
 
+export const ContextConsumer = Consumer
 export default HomeScreen
-
-//
