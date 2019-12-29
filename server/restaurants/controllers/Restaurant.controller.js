@@ -2,6 +2,7 @@
  * 3rd party lib
  */
 const axios = require('axios')
+const uuid = require('uuid')
 
 /**
  * DAO
@@ -18,7 +19,10 @@ class RestaurantController {
   static async addRestaurant (req, res) {
     try {
       const restaurantsDAO = new RestaurantsDAO('restaurants')
-      const restaurant = await restaurantsDAO.addRestaurants(req.body)
+      const restaurant = await restaurantsDAO.addRestaurant({
+        id: uuid(),
+        ...req.body
+      })
       res.status(201).json({
         statusCode: 201,
         responseBody: {
@@ -80,6 +84,8 @@ class RestaurantController {
       })
 
       await restaurantsDAO.addRestaurants(results)
+      const restaurants = await restaurantsDAO.getRestaurants(state.long_name)
+      // console.log(restaurants)
 
       res.status(201).json({
         message: 'OK',
@@ -88,7 +94,7 @@ class RestaurantController {
           country,
           state,
           coords,
-          restaurants: results // supposed to come from db
+          restaurants
         }
       })
     } catch (error) {

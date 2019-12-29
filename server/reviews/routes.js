@@ -7,18 +7,6 @@ const reviewsRouter = express.Router()
 const ReviewController = require('./controllers/Review.controller')
 
 /************************************************************************
- * * **************************** DELETE ROUTES  ****************************
- ************************************************************************
- */
-/**
- * @access private
- * @description deletes a review
- * @method DELETE
- * @type {Router}
- */
-reviewsRouter.delete('/:reviewId', ReviewController.removeReview)
-
-/************************************************************************
  * * **************************** GET ROUTES  ****************************
  ************************************************************************
  */

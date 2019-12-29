@@ -61,7 +61,7 @@ class ReviewsDAO {
 
   async getReviews (restaurantId) {
     try {
-      const aggregationCursor = await this.dbReadInterface.aggregateById(restaurantId)
+      const aggregationCursor = await this.dbReadInterface.aggregateById(restaurantId, "restaurantId")
       return await aggregationCursor.toArray()
     } catch (error) {
       console.log(error)
