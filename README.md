@@ -35,3 +35,11 @@ You will need the following dependencies installed on your system.
 - React and styled-components for the frontend.
 - Google Maps, Google Places, Google Geolocation and Google Geocoding APIs.
 
+### Features
+- [x] List Restaurants
+- [x] Add Reviews
+- [x] Add Restaurants
+- [x] Google Street Views
+- [ ] Restaurant Search/Filtering
+- [ ] Dark and Light Modes.
+- [ ] Responsive Design
