@@ -13,6 +13,18 @@ La Revue is a fictional restaurant reviewing website that allows users to anonym
 - To separate concerns, reviews get added to a custom database instead of the actual restaurant to prevent unwanted reviews.
 - No authentication mechanism has been implemented, all reviews are completely anonymous.
 
+## Features
+- [x] List Restaurants
+- [x] Add Reviews
+- [x] Add Restaurants
+- [x] Google Street Views
+- [ ] Restaurant Search/Filtering
+- [ ] Dark and Light Modes.
+- [ ] Responsive Design
+- [ ] Enhance Accessibility
+- [ ] Statically Overlayed Side Panel
+
+
 ## Live Demo
 The app is deployed on heroku and can be found at this **[URL](https://morning-beach-13124.herokuapp.com/)**
 
@@ -35,11 +47,3 @@ You will need the following dependencies installed on your system.
 - React and styled-components for the frontend.
 - Google Maps, Google Places, Google Geolocation and Google Geocoding APIs.
 
-### Features
-- [x] List Restaurants
-- [x] Add Reviews
-- [x] Add Restaurants
-- [x] Google Street Views
-- [ ] Restaurant Search/Filtering
-- [ ] Dark and Light Modes.
-- [ ] Responsive Design
