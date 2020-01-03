@@ -8,13 +8,12 @@ import Moment from 'moment';
 import { FaUserAlt } from 'react-icons/fa'
 
 const ReviewBody = styled.article`
-  padding: 0.3em;
   display: flex;
 `
 
 const ReviewContent = styled.div`
   & div {
-    padding-left: 1em;
+    padding-left: 0.1em;
   }
   flex: 2;
 `

@@ -83,6 +83,10 @@ const HomeScreen = () => {
   const [restaurantName, setName] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [min, updateMin] = useState(1)
+  const [max, updateMax] = useState(4)
+  const [lat, updateLat] = useState(0)
+  const [lng, updateLng] = useState(0)
 
   const onOverlayClick = e => {
     console.log('clicked overlay!')
@@ -90,6 +94,9 @@ const HomeScreen = () => {
     setModalVisible(true)
   }
   const onMapClick = e => {
+    console.log(e)
+    updateLat(e.latLng.lat())
+    updateLng(e.latLng.lng())
     setModalVisible(true)
   }
 
@@ -104,6 +111,7 @@ const HomeScreen = () => {
         source: 'base'
       })
       const response = await api.postData(restaurant)
+      console.log(response.doc)
       setRestaurants(restaurants)
       setSuccessMessage('Restaurant Added')
     } catch (error) {
@@ -111,11 +119,12 @@ const HomeScreen = () => {
     }
   }
 
-  const apiCall = async () => {
+  const apiCall = async (options) => {
     try {
       const api = new API({
         resource: '/restaurants',
-        source: 'base'
+        source: 'base',
+        params: options
       })
 
       /**
@@ -154,6 +163,19 @@ const HomeScreen = () => {
     return <h3>Failed to load</h3>
   }
 
+  const updateRestaurants = (min, max) => {
+    console.log('updating restaurants')
+    console.log(restaurants)
+    const updatedRestaurants = restaurants.filter(restaurant => {
+      console.log(restaurant.rating)
+      return restaurant.rating >= min && restaurant.rating <= max
+    })
+    console.log(updatedRestaurants)
+    setRestaurants(updatedRestaurants)
+    const newCoords = updatedRestaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
+    setCoords(newCoords)
+  }
+
   return (
     <Provider value={{
       location,
@@ -166,7 +188,12 @@ const HomeScreen = () => {
       country,
       city,
       onOverlayClick,
-      addRestaurant
+      addRestaurant,
+      updateRestaurants,
+      min,
+      max,
+      lat,
+      lng
     }}>
       <Wrapper>
         <MapWrapper>

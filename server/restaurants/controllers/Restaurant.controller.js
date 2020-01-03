@@ -51,9 +51,11 @@ class RestaurantController {
     try {
       const key = process.env.GOOGLE_MAPS_API_KEY
       const restaurantsDAO = new RestaurantsDAO('restaurants')
+      const url = 'https://maps.googleapis.com/maps/api/place'
 
       const { location: { lat, lng }, type, radius } = req.body
       const result = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=${type}&key=${key}`)
+      // const place = await axios.get(`${url}/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name,rating,formatted_phone_number&key`)
       const { data: { results } } = result
 
       // get all coords for displaying markers

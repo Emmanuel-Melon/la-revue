@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useContext } from 'react'
 
 /**
  * components
@@ -9,6 +9,9 @@ import {
   Body,
   Header
 } from './Expandable'
+
+import API from '../Utils/api'
+import { ContextConsumer } from "../Screens/Home";
 
 /**
  * contexts
@@ -32,10 +35,10 @@ const FilterBody = styled.div`
   align-items: center;
 `
 
-const FilterButton = styled.p`
+const FilterInput = styled.input`
   border: none;
   padding: 8px;
-  width: 25%;
+  width: 45%;
   background: rgb(67,27,84);
   background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
   color: gold;
@@ -57,36 +60,46 @@ color: #666666;
  * @constructor
  */
 const FilterRestaurants = () => {
-  const [number, handleChange] = useState(5)
-  const toggle = useCallback(
-    () => handleChange(prevState => {
-      if (prevState <= 5) return prevState - 1
-      else if (prevState <= 0) return prevState + 1
-    }),
-    []
-  )
+  const [min, updateMin] = useState(1)
+  const [max, updateMax] = useState(5)
+  const [error, setError] = useState(null)
+
+  const handleMaxChange = e => {
+    console.log(e.target.value)
+    updateMax(e.target.value)
+  }
+
+  const handleMinChange = e => {
+    console.log(e.target.value)
+    updateMax(e.target.value)
+  }
 
   return (
-    <Expandable>
-      <Header>
-        <FaFilter />
-        Filter Restaurants
-      </Header>
-      <Body>
-        <Filter>
-          <SearchRestaurants />
-          <FilterHeader>Filter by reviews</FilterHeader>
-          <FilterBody>
-            <FilterButton onClick={toggle}><FaArrowDown /> Min</FilterButton>
-            <div>
-              <p className='centered'>{number}</p>
-              <p>Stars</p>
-            </div>
-            <FilterButton onClick={toggle}> <FaArrowUp /> Max</FilterButton>
-          </FilterBody>
-        </Filter>
-      </Body>
-    </Expandable>
+    <ContextConsumer>
+      { context => {
+        console.log(context)
+        return (
+          <Expandable>
+            <Header>
+              <FaFilter />
+              Filter Restaurants
+            </Header>
+            <Body>
+              <Filter>
+                <FilterHeader>Filter by reviews</FilterHeader>
+                <FilterBody>
+                  <FilterInput type='number' onChange={handleMinChange} value={min} placeholder='Min 1' max={5} />
+                  <FilterInput type='number' onChange={handleMaxChange} value={max} placeholder='Max 5' max={5} />
+                </FilterBody>
+                <div>
+                  <button onClick={() => context.updateRestaurants(min, max)}>Filter</button>
+                </div>
+              </Filter>
+            </Body>
+          </Expandable>
+        )
+      }}
+    </ContextConsumer>
   )
 }
 

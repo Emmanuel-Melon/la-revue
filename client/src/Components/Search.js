@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 /**
  * styles
  */
 import styled from 'styled-components'
+
+/**
+ * custom hooks
+ */
+import useDropDown from '../Hooks/useDropDown'
+
 const SearchBar = styled.input`
   width: 98%;
   border: none;
@@ -25,11 +31,21 @@ const Wrapper = styled.div`
  * @constructor
  */
 const SearchRestaurants = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [restaurants, updateRestaurants] = useState([])
   return (
     <Wrapper>
       <h4 className='sub-header'>Filter by city</h4>
       <div>
-        <SearchBar type='text' placeholder='E.g Kampala' id='city' />
+        <SearchBar
+          type='text'
+          placeholder='E.g Kampala'
+          id='city'
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+          onBlur={e => setSearchTerm(e.target.value)}
+          name='searchTerm'
+        />
       </div>
     </Wrapper>
   )

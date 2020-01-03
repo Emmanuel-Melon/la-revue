@@ -9,18 +9,20 @@ import { FaEdit, FaHamburger, FaMapMarkerAlt } from 'react-icons/fa'
 
 import styled from 'styled-components'
 import CustomButton from './CustomButton'
+import CustomImage from './CustomImage'
 import ReviewSummary from './ReviewSummary'
 import API from "../Utils/api";
+import axios from 'axios'
 
 
 const RestaurantView = styled.section`
   background: #ffffff;
-  padding: 1.5em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border: solid 0.2em #37104a;
+  padding: 1em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   overflow-y: scroll;
   min-width: 200px;
   max-width: 500px;
+  border-radius: 0.5em;
   
   & h3 {
     font-size: 24px;
@@ -44,12 +46,15 @@ const Input = styled.input`
   border: solid 0.1em #37104a;
 `
 
+const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
 const RestaurantInfo = ({ city, country, restaurant }) => {
   const [isLoading, setLoading] = useState(false)
   const [reviews, setReviews] = useState([])
   const [error, setError] = useState(null)
   const [images, setImages] = useState([])
   const [text, setText] = useState('')
+  const [streetView, updateStreetView] = useState('')
   const photos = restaurant.photos
 
   const handleInputChange = e => {
@@ -94,8 +99,26 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
     }
   }
 
+  const fetchStreetView = async () => {
+    try {
+      const api = new API({
+        resource: `streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
+&key=${key}`,
+        source: 'maps'
+      })
+      const response = await api.fetchData()
+      if(response.status === 200) {
+        console.log(response.status)
+        updateStreetView(response.data)
+      }
+    } catch (error) {
+      setError(error)
+    }
+  }
+
   useEffect(() => {
     getReviews()
+    // fetchStreetView()
   }, [restaurant])
 
 
@@ -104,17 +127,24 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
     return null
   }
 
+  console.log(restaurant)
+  const { geometry: { location: { lat, lng }}} = restaurant
   return (
     <div>
       { !isLoading ? (
         <RestaurantView>
           <div>
             <h3>{restaurant.name}</h3>
+            <CustomImage
+              src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
+&key=${key}`}
+              alt=''
+            />
           </div>
           <div />
           <div>
             {
-              reviews.length === 0 ? (
+              !reviews.length ? (
                 <div>
                   <p>This restaurant has no reviews</p>
                 </div>

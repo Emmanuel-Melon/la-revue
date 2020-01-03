@@ -3,14 +3,16 @@ const urlsMap = new Map()
 
 urlsMap.set('base', 'http://localhost:5000/api/')
 urlsMap.set('google', 'https://www.googleapis.com')
+urlsMap.set('maps', 'https://maps.googleapis.com/maps/api/')
 
 /**
  *
  */
 class API {
   constructor (options) {
-    const { resource, source } = options
+    const { resource, source, params } = options
     this.resource = resource
+    this.params = params
     this.baseInstance = axios.create({
       baseURL: urlsMap.get(source)
     })
@@ -18,8 +20,9 @@ class API {
 
   async fetchData () {
     try {
-      console.log(this.resource)
-      const response = await this.baseInstance.get(this.resource)
+      const response = await this.baseInstance.get(this.resource, {
+        ...this.params
+      })
       console.log(response)
       return {
         ...response

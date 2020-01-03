@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  createContext,
-  useEffect,
-  useContext
-} from 'react'
+import React from 'react'
 import './App.css'
 
 import {
@@ -17,9 +12,13 @@ import {
  */
 import Geolocation from './Services/Geolocation'
 
+/**
+ * components
+ */
 import AboutScreen from './Screens/About'
 import HomeScreen from './Screens/Home'
 import Navabar from './Components/Navbar'
+import NotFound from './Screens/404'
 
 // use context to set user current location
 const App = () => {
@@ -29,10 +28,8 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={HomeScreen} />
         <Route exact path='/about' component={AboutScreen} />
+        <Route component={NotFound} />
       </Switch>
-      <footer>
-        <p>OpenClassrooms 2019</p>
-      </footer>
     </Router>
   )
 }

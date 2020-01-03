@@ -37,9 +37,10 @@ const AddRestaurant = props => {
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const addRestaurant = async () => {
+  const addRestaurant = async (e) => {
     try {
       // create a new restaurant
+      console.log(e.target)
       const restaurant = {
         name,
         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
@@ -69,7 +70,7 @@ const AddRestaurant = props => {
     <ContextConsumer>
       { context => {
         // context is null
-        console.log(props)
+        console.log(context)
         return (
           <Wrapper>
             <h3>Add Restaurant</h3>
@@ -82,7 +83,7 @@ const AddRestaurant = props => {
             />
             { successMessage === '' ? null : <Success>{successMessage}</Success> }
             { errorMessage === '' ? null : <Error>{errorMessage}</Error> }
-            <CustomButton onClick={() => addRestaurant()}><FaPlus /> Add Restaurant</CustomButton>
+            <CustomButton onClick={(e) => addRestaurant(e)}><FaPlus /> Add Restaurant</CustomButton>
           </Wrapper>
         )
       }}
