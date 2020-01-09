@@ -5,7 +5,7 @@ import React, {
   useCallback
 } from 'react'
 
-import { FaEdit, FaHamburger, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEdit, FaMapMarker } from 'react-icons/fa'
 
 import styled from 'styled-components'
 import CustomButton from './CustomButton'
@@ -13,23 +13,21 @@ import CustomImage from './CustomImage'
 import ReviewSummary from './ReviewSummary'
 import API from "../Utils/api";
 import axios from 'axios'
+import Rating from "./Ratings";
 
 
 const RestaurantView = styled.section`
   background: #ffffff;
-  padding: 1em;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  overflow-y: scroll;
   min-width: 200px;
   max-width: 500px;
-  border-radius: 0.5em;
+  padding: 1em;
   
   & h3 {
     font-size: 24px;
   }
   
   & h4 {
-  font-size: 18px;
+  font-size: 21px;
   }
 `
 
@@ -48,14 +46,13 @@ const Input = styled.input`
 
 const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
-const RestaurantInfo = ({ city, country, restaurant }) => {
+const RestaurantInfo = ({ restaurant }) => {
   const [isLoading, setLoading] = useState(false)
   const [reviews, setReviews] = useState([])
   const [error, setError] = useState(null)
   const [images, setImages] = useState([])
   const [text, setText] = useState('')
   const [streetView, updateStreetView] = useState('')
-  const photos = restaurant.photos
 
   const handleInputChange = e => {
     const { target: { name, value } } = e
@@ -99,7 +96,71 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
     }
   }
 
-  const fetchStreetView = async () => {
+
+
+  useEffect(() => {
+    getReviews()
+    // fetchStreetView()
+  }, [restaurant])
+
+
+  // check if the restaurant object is empty
+  if(Object.entries(restaurant).length === 0 && restaurant.constructor === Object) {
+    return null
+  }
+
+  console.log(restaurant)
+  // const { geometry: { location: { lat, lng }}} = restaurant
+
+  // if(error) // display error component
+  return (
+    <div>
+      { !isLoading ? (
+        <RestaurantView>
+          <div>
+            <h3>{restaurant.name} { restaurant.opening_hours ? <span className='open'>Open</span> : <span className='closed'>Closed</span> } </h3>
+            <p>{restaurant.rating} <Rating rating={restaurant.rating} /> ({restaurant.user_ratings_total})</p>
+            <p ><FaMapMarker /> {restaurant.vicinity}</p>
+          </div>
+          <div />
+          <div>
+            <h5>Reviews</h5>
+            <ResaurantActions>
+              <Input
+                type='text'
+                placeholder='restaurant name'
+                value={text} onChange={e => setText(e.target.value)}
+                name='restaurant'
+              />
+              <CustomButton onClick={addReview}><FaEdit /> Add Review</CustomButton>
+            </ResaurantActions>
+            {
+              !reviews.length ? (
+                <div>
+                  <p>This restaurant has no reviews</p>
+                </div>
+              ) : (
+                reviews.map(review => {
+                  return <ReviewSummary review={{...review}} key={review._id} />
+                })
+              )
+            }
+          </div>
+        </RestaurantView>
+      ) : (
+        <RestaurantView>
+          <h3>Loading Restaurant</h3>
+        </RestaurantView>
+      )
+      }
+    </div>
+  )
+}
+
+export default RestaurantInfo
+
+/**
+ *   const fetchStreetView = async () => {
     try {
       const api = new API({
         resource: `streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
@@ -115,65 +176,4 @@ const RestaurantInfo = ({ city, country, restaurant }) => {
       setError(error)
     }
   }
-
-  useEffect(() => {
-    getReviews()
-    // fetchStreetView()
-  }, [restaurant])
-
-
-  // check if the restaurant object is empty
-  if(Object.entries(restaurant).length === 0 && restaurant.constructor === Object) {
-    return null
-  }
-
-  console.log(restaurant)
-  const { geometry: { location: { lat, lng }}} = restaurant
-  return (
-    <div>
-      { !isLoading ? (
-        <RestaurantView>
-          <div>
-            <h3>{restaurant.name}</h3>
-            <CustomImage
-              src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
-&key=${key}`}
-              alt=''
-            />
-          </div>
-          <div />
-          <div>
-            {
-              !reviews.length ? (
-                <div>
-                  <p>This restaurant has no reviews</p>
-                </div>
-              ) : (
-                reviews.map(review => {
-                  return <ReviewSummary review={{...review}} key={review._id} />
-                })
-              )
-            }
-          </div>
-          <ResaurantActions>
-            <Input
-              type='text'
-              placeholder='Your review'
-              onChange={handleInputChange}
-              name='review'
-              value={text}
-            />
-            <CustomButton onClick={addReview}><FaEdit /> Add Review</CustomButton>
-          </ResaurantActions>
-        </RestaurantView>
-      ) : (
-        <RestaurantView>
-          <h3>Loading Restaurant</h3>
-        </RestaurantView>
-      )
-      }
-    </div>
-  )
-}
-
-export default RestaurantInfo
+ */

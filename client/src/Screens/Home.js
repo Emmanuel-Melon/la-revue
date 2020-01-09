@@ -34,6 +34,8 @@ const Sidebar = styled.aside`
   top: 105px;
   right: 60px;
   max-width: 450px;
+  max-height: 650px;
+  overflow-y: scroll;
  
 `
 
@@ -44,6 +46,8 @@ const Controls = styled.div`
   left: 10px;
   max-width: 500px;
   width: 500px;
+  max-height: 600px;
+  overflow-y: scroll;
 `
 
 const SidebarHead = styled.div`
@@ -221,17 +225,19 @@ const HomeScreen = () => {
             loadingElement={<div style={{ height: `100vh` }} />}
             containerElement={<div style={{ height: `100vh` }} />}
             mapElement={<div style={{ height: `100vh` }} />}
-          />
+          >
+            <h3 style={{ display: 'none' }}>Hello</h3>
+          </OverlayedMap>
           <div>
             <Controls>
 
               { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
+              <FilterComponent />
               <RestaurantInfo
                 city={city}
                 country={country}
                 restaurant={selectedRestaurant}
               />
-
             </Controls>
             <Sidebar>
               <div>
