@@ -232,7 +232,6 @@ const HomeScreen = () => {
             <Controls>
 
               { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
-              <FilterComponent />
               <RestaurantInfo
                 city={city}
                 country={country}
