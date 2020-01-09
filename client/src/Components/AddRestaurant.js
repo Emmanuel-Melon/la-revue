@@ -40,17 +40,16 @@ const AddRestaurant = props => {
   const addRestaurant = async (e) => {
     try {
       // create a new restaurant
-      console.log(e.target)
       const restaurant = {
         name,
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+        'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png',
         types: [
-          "restaurant",
-          "food",
-          "point_of_interest",
-          "establishment"
+          'restaurant',
+          'food',
+          'point_of_interest',
+          'establishment'
         ],
-        vicinity: "Kampala",
+        vicinity: 'Kampala',
         rating: 5
       }
       await props.addRestaurant(restaurant)
@@ -63,14 +62,13 @@ const AddRestaurant = props => {
 
   const handleInputChange = e => {
     const { target: { value } } = e
-    setName(value);
+    setName(value)
   }
 
   return (
     <ContextConsumer>
       { context => {
         // context is null
-        console.log(context)
         return (
           <Wrapper>
             <h3>Add Restaurant</h3>

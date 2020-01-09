@@ -11,7 +11,6 @@ const {
 } = process.env
 
 const url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/test?retryWrites=true&w=majority`
-console.log(url)
 /**
  *
  * @constructor

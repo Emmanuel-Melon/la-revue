@@ -20,7 +20,7 @@ class RestaurantsDAO {
   async addRestaurants (restaurants) {
     try {
       // ensure uniqueness
-      return await this.dbWriteInterface.insertMany(restaurants, { "ordered": false })
+      return await this.dbWriteInterface.insertMany(restaurants, { 'ordered': false })
     } catch (error) {
       return { error }
     }
@@ -45,8 +45,7 @@ class RestaurantsDAO {
    */
   async getRestaurants (location) {
     try {
-      console.log(location)
-      const cursor = await this.dbReadInterface.find(location).sort({ 'timestamp': -1})
+      const cursor = await this.dbReadInterface.find(location).sort({ 'timestamp': -1 })
       return await cursor.toArray()
     } catch (error) {
       return { error }

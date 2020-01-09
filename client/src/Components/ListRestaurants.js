@@ -1,12 +1,10 @@
 import React from 'react'
 import RestaurantSummary from './RestaurantSummary'
-import RestaurantSkeleton from './RestaurantSkeleton'
+// import RestaurantSkeleton from './RestaurantSkeleton'
 import { ContextConsumer } from '../Screens/Home'
 import NoData from './NoData'
 
 const ListRestaurants = ({ restaurants }) => {
-
-  console.log(restaurants)
   return (
     <ContextConsumer>
       { context => {

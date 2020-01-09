@@ -91,7 +91,7 @@ class RestaurantController {
       const [state] = address_components.filter(component => {
         return component.types.includes('administrative_area_level_2')
       })
-      const updatedResults = results.map(result =>{
+      const updatedResults = results.map(result => {
         return {
           ...result,
           timestamp: Date.now()
@@ -100,8 +100,6 @@ class RestaurantController {
       // it should update existing entries instead of overwriting them
       await restaurantsDAO.addRestaurants(updatedResults)
       const restaurants = await restaurantsDAO.getRestaurants(state.long_name)
-      // console.log(restaurants)
-
       res.status(201).json({
         message: 'OK',
         statusCode: 201,
@@ -113,7 +111,6 @@ class RestaurantController {
         }
       })
     } catch (error) {
-      console.log(error)
       res.status(503).json({
         message: 'Service Unavailable',
         statusCode: 503,

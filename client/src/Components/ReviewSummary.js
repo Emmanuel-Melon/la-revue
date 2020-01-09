@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Rating from "./Ratings"
-import CustomImage from "./CustomImage"
-import Moment from 'moment';
+import Rating from './Ratings'
+import CustomImage from './CustomImage'
+import Moment from 'moment'
 
 import { FaUserAlt } from 'react-icons/fa'
 

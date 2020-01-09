@@ -19,7 +19,7 @@ const NoData = ({ message, image }) => {
     <Wrapper>
       <div>
         <h3>Oh mon Dieu!</h3>
-        <CustomImage src={image} alt="Content not available"/>
+        <CustomImage src={image} alt='Content not available' />
         <p>{message}</p>
       </div>
     </Wrapper>

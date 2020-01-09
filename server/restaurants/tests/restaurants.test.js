@@ -65,13 +65,11 @@ describe('Restaurants', () => {
       }
       const httpResponse = await exec(review)
       const mongodbResponse = await restaurantsDAO.addRestaurants(restaurants)
-      console.log(Object.keys(mongodbResponse.userDoc))
       const { restaurantsDoc: { insertedId, insertedCount } } = mongodbResponse
       expect(httpResponse.status).toBe(201)
       expect(ObjectID.isValid(insertedId)).toBeTruthy()
       expect(insertedCount).toEqual(1)
     })
-
   })
 
   describe('GET /api/restaurants/:restaurantId', () => {

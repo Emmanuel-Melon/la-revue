@@ -1,7 +1,7 @@
-import React, {createContext, useEffect, useState} from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 import '../App.css'
-import {FaInfoCircle, FaMapMarkerAlt} from 'react-icons/fa'
+import { FaInfoCircle, FaMapMarkerAlt } from 'react-icons/fa'
 import uuid from 'uuid'
 /**
  * components
@@ -13,7 +13,7 @@ import RestaurantInfo from '../Components/RestaurantInfo'
 import AddRestaurant from '../Components/AddRestaurant'
 import Offline from './Offline'
 
-import Expandable, {Body, Header} from '../Components/Expandable'
+// import Expandable, {Body, Header} from '../Components/Expandable'
 /**
  * utils
  */
@@ -94,7 +94,6 @@ const HomeScreen = () => {
   const [zoom, setZoom] = useState(13)
   const [mapLoading, setMapLoading] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
-  const [restaurantName, setName] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [min, updateMin] = useState(1)
@@ -103,12 +102,9 @@ const HomeScreen = () => {
   const [lng, updateLng] = useState(0)
 
   const onOverlayClick = e => {
-    console.log('clicked overlay!')
-    console.log(e)
     setModalVisible(true)
   }
   const onMapClick = e => {
-    console.log(e)
     updateLat(e.latLng.lat())
     updateLng(e.latLng.lng())
     setModalVisible(true)
@@ -124,17 +120,14 @@ const HomeScreen = () => {
         resource: 'restaurants/add',
         source: 'base'
       })
-      console.log(restaurant)
       const response = await api.postData(restaurant)
-      console.log(response.doc)
       setRestaurants(() => {
         const updatedRestaurant = {
           ...restaurant,
           id: uuid()
         }
         const newRestaurants = restaurants.unshift(updatedRestaurant)
-        console.log(newRestaurants)
-        return restaurants
+        return newRestaurants
       })
       setSuccessMessage('Restaurant Added')
       setModalVisible(false)
@@ -167,7 +160,6 @@ const HomeScreen = () => {
       })
 
       // set hooks data
-      console.log(restaurants)
       setRestaurants(restaurants)
       setCity(state)
       setCountry(country)
@@ -182,22 +174,16 @@ const HomeScreen = () => {
     apiCall()
   }, [])
 
-  console.log(restaurants)
-
   const updateRestaurants = (min, max) => {
-    console.log('updating restaurants')
-    console.log(restaurants)
     const updatedRestaurants = restaurants.filter(restaurant => {
-      console.log(restaurant.rating)
       return restaurant.rating >= min && restaurant.rating <= max
     })
-    console.log(updatedRestaurants)
     setRestaurants(updatedRestaurants)
     const newCoords = updatedRestaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
     setCoords(newCoords)
   }
 
-  if(hasError) return <Offline />
+  if (hasError) return <Offline />
   return (
     <Provider value={{
       location,
@@ -232,6 +218,7 @@ const HomeScreen = () => {
             <Controls>
 
               { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
+              <FilterComponent />
               <RestaurantInfo
                 city={city}
                 country={country}
@@ -255,7 +242,6 @@ const HomeScreen = () => {
     </Provider>
   )
 }
-
 
 // current view should only show AddRestaurant or RestaurantInfo but not both at the same time
 export const ContextConsumer = Consumer

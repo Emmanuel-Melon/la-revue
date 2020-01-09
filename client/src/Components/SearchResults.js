@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 const SearchResults = ({ data }) => {
   return (
-    <div className="search">
+    <div className='search'>
       {!data.length ? (
         <h1>No Pets Found</h1>
       ) : (
@@ -13,11 +13,11 @@ const SearchResults = ({ data }) => {
             >
               {item.name}
             </p>
-          );
+          )
         })
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SearchResults;
+export default SearchResults

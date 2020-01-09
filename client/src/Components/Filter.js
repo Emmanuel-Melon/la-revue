@@ -11,7 +11,7 @@ import {
 } from './Expandable'
 
 import API from '../Utils/api'
-import { ContextConsumer } from "../Screens/Home";
+import { ContextConsumer } from '../Screens/Home'
 
 /**
  * contexts
@@ -65,19 +65,16 @@ const FilterRestaurants = () => {
   const [error, setError] = useState(null)
 
   const handleMaxChange = e => {
-    console.log(e.target.value)
     updateMax(e.target.value)
   }
 
   const handleMinChange = e => {
-    console.log(e.target.value)
     updateMin(e.target.value)
   }
 
   return (
     <ContextConsumer>
       { context => {
-        console.log(context)
         return (
           <Expandable>
             <Header>

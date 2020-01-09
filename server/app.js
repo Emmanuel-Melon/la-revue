@@ -16,8 +16,7 @@ require('./init/routes')(app)
  * routes
  */
 app.get('*', (req, res) => {
-  res.sendFile(path.join(path.resolve(__dirname, '../client/build/index.html')));
-});
-
+  res.sendFile(path.join(path.resolve(__dirname, '../client/build/index.html')))
+})
 
 module.exports = app

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const useDropdown = (label, defaultState, options) => {
-  const [state, updateState] = useState(defaultState);
-  const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+  const [state, updateState] = useState(defaultState)
+  const id = `use-dropdown-${label.replace(' ', '').toLowerCase()}`
   const Dropdown = () => (
     <label htmlFor={id}>
       {label}
@@ -21,8 +21,8 @@ const useDropdown = (label, defaultState, options) => {
         ))}
       </select>
     </label>
-  );
-  return [state, Dropdown, updateState];
-};
+  )
+  return [state, Dropdown, updateState]
+}
 
-export default useDropdown;
+export default useDropdown

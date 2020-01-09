@@ -55,7 +55,6 @@ class DbWriteInterface {
 
   async insertMany (data) {
     try {
-      console.log(data)
       const col = DBProvider.findCollection(this.collection)
       const doc = await col.insertMany(data)
       return ({
@@ -110,7 +109,6 @@ class DbWriteInterface {
         error: null
       })
     } catch (error) {
-      console.log(error)
       return ({
         data: null,
         error

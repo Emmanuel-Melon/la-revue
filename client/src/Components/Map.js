@@ -10,14 +10,14 @@ import {
 } from 'react-google-maps'
 
 import {
-  compose,
+  compose
 } from 'recompose'
 
 import { ContextConsumer } from '../Screens/Home'
 
 const getPixelPositionOffset = (width, height) => ({
-  x: -(width /2),
-  y: -(height/2),
+  x: -(width / 2),
+  y: -(height / 2)
 })
 
 // custom styles to make Overlay static

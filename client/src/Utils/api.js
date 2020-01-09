@@ -23,7 +23,6 @@ class API {
       const response = await this.baseInstance.get(this.resource, {
         ...this.params
       })
-      console.log(response)
       return {
         ...response
       }
@@ -37,14 +36,12 @@ class API {
 
   async postData (data) {
     try {
-      console.log(data)
       const response = await this.baseInstance.post(this.resource, data)
       const { data: { responseBody } } = response
       return {
         ...responseBody
       }
     } catch (error) {
-      console.log(error)
       return {
         error,
         message: 'Failed to post data'

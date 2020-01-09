@@ -42,22 +42,22 @@ You will need the following dependencies installed on your system.
 
 ## Built with
 ### ECMAScript 7 (“ES7” / JavaScript)
-ECMAScript™ is the standard behind JavaScript. It has had a number of very useful additions over the past several years, modernizing the syntax and providing new capabilities.
+ECMAScript™ is the standard behind JavaScript. It has had a number of very useful additions over the past several years, modernizing the syntax and providing new capabilities.  
+[**Learn More**](https://www.ecma-international.org/ecma-262/10.0/index.html)
 
 ### Node.js
 Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript code on server environments.  
 [**Learn More**](https://nodejs.org/en/)
 
 ### React.js
-React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. 
+React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.   
 [**Learn More**](https://reactjs.org/)
 
 ### MongoDB
-MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. No database makes you more productive.  
+MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. No database makes you more productive.    
 [**Learn More**](https://www.mongodb.com/)
-- React and styled-components for the frontend.
 
 ### Google Maps APIs
-Google Maps is a web mapping service developed by Google. It offers satellite imagery, aerial photography, street maps, 360° panoramic views of streets, real-time traffic conditions, and route planning for traveling by foot, car, bicycle and air, or public transportation.
+Google Maps is a web mapping service developed by Google. It offers satellite imagery, aerial photography, street maps, 360° panoramic views of streets, real-time traffic conditions, and route planning for traveling by foot, car, bicycle and air, or public transportation.  
 [**Learn More**](https://cloud.google.com/maps-platform/)
 

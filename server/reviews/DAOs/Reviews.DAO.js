@@ -16,7 +16,6 @@ class ReviewsDAO {
     try {
       return await this.dbWriteInterface.insertOne(review)
     } catch (error) {
-      console.error(`Unable to like content: ${error}`)
       return { error }
     }
   }
@@ -45,7 +44,6 @@ class ReviewsDAO {
       }
       return await getAllChildren(this.subject.subjectId, options)
     } catch (error) {
-      console.error(`Unable to retrieve likes for this comment: ${error}`)
       return { error }
     }
   }
@@ -54,17 +52,15 @@ class ReviewsDAO {
     try {
       return await this.dbReadInterface.findOneById(reviewId)
     } catch (error) {
-      console.error(`Unable to retrieve likes for this comment: ${error}`)
       return { error }
     }
   }
 
   async getReviews (restaurantId) {
     try {
-      const aggregationCursor = await this.dbReadInterface.aggregateById(restaurantId, "restaurantId")
+      const aggregationCursor = await this.dbReadInterface.aggregateById(restaurantId, 'restaurantId')
       return await aggregationCursor.toArray()
     } catch (error) {
-      console.log(error)
       return { error }
     }
   }

@@ -12,7 +12,6 @@ class ReviewController {
   static async addReview (req, res) {
     try {
       const reviewsDAO = new ReviewsDAO()
-      console.log(req.body)
       const review = await reviewsDAO.addReview(req.body)
       res.status(201).json({
         message: 'Success',
@@ -51,7 +50,6 @@ class ReviewController {
         }
       })
     } catch (error) {
-      console.log(error)
       res.status(503).json({
         message: 'Service Unavailable',
         statusCode: 503,
@@ -61,7 +59,6 @@ class ReviewController {
       })
     }
   }
-
 }
 
 module.exports = ReviewController

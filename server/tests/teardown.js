@@ -1,6 +1,5 @@
 async function teardown () {
-  console.log('Teardown Mongo Connection')
-  delete global.mflixDB
+  delete global.db
 }
 
 module.exports = teardown

@@ -11,10 +11,9 @@ import styled from 'styled-components'
 import CustomButton from './CustomButton'
 import CustomImage from './CustomImage'
 import ReviewSummary from './ReviewSummary'
-import API from "../Utils/api";
+import API from '../Utils/api'
 import axios from 'axios'
-import Rating from "./Ratings";
-
+import Rating from './Ratings'
 
 const RestaurantView = styled.section`
   background: #ffffff;
@@ -56,9 +55,8 @@ const RestaurantInfo = ({ restaurant }) => {
 
   const handleInputChange = e => {
     const { target: { name, value } } = e
-    setText(value);
+    setText(value)
   }
-
 
   const addReview = async () => {
     try {
@@ -96,16 +94,13 @@ const RestaurantInfo = ({ restaurant }) => {
     }
   }
 
-
-
   useEffect(() => {
     getReviews()
     // fetchStreetView()
   }, [restaurant])
 
-
   // check if the restaurant object is empty
-  if(Object.entries(restaurant).length === 0 && restaurant.constructor === Object) {
+  if (Object.entries(restaurant).length === 0 && restaurant.constructor === Object) {
     return null
   }
 
@@ -141,7 +136,7 @@ const RestaurantInfo = ({ restaurant }) => {
                 </div>
               ) : (
                 reviews.map(review => {
-                  return <ReviewSummary review={{...review}} key={review._id} />
+                  return <ReviewSummary review={{ ...review }} key={review._id} />
                 })
               )
             }
