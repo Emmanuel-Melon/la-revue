@@ -8,11 +8,6 @@ import {
 } from 'react-router-dom'
 
 /**
- * services
- */
-import Geolocation from './Services/Geolocation'
-
-/**
  * components
  */
 import AboutScreen from './Screens/About'

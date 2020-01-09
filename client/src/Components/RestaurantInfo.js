@@ -1,8 +1,6 @@
 import React, {
   useEffect,
   useState,
-  useContext,
-  useCallback
 } from 'react'
 
 import { FaEdit, FaMapMarker } from 'react-icons/fa'
@@ -12,7 +10,6 @@ import CustomButton from './CustomButton'
 import CustomImage from './CustomImage'
 import ReviewSummary from './ReviewSummary'
 import API from '../Utils/api'
-import axios from 'axios'
 import Rating from './Ratings'
 
 const RestaurantView = styled.section`
@@ -53,10 +50,6 @@ const RestaurantInfo = ({ restaurant }) => {
   const [text, setText] = useState('')
   const [streetView, updateStreetView] = useState('')
 
-  const handleInputChange = e => {
-    const { target: { name, value } } = e
-    setText(value)
-  }
 
   const addReview = async () => {
     try {
@@ -94,9 +87,26 @@ const RestaurantInfo = ({ restaurant }) => {
     }
   }
 
+  const fetchStreetView = async () => {
+    try {
+      const api = new API({
+        resource: `streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
+&key=${key}`,
+        source: 'maps'
+      })
+      const response = await api.fetchData()
+      if(response.status === 200) {
+        console.log(response.status)
+        updateStreetView(response.data)
+      }
+    } catch (error) {
+      setError(error)
+    }
+  }
+
   useEffect(() => {
     getReviews()
-    // fetchStreetView()
+    fetchStreetView()
   }, [restaurant])
 
   // check if the restaurant object is empty
@@ -104,7 +114,6 @@ const RestaurantInfo = ({ restaurant }) => {
     return null
   }
 
-  console.log(restaurant)
   // const { geometry: { location: { lat, lng }}} = restaurant
 
   // if(error) // display error component
@@ -114,7 +123,9 @@ const RestaurantInfo = ({ restaurant }) => {
         <RestaurantView>
           <div>
             <h3>{restaurant.name} { restaurant.opening_hours ? <span className='open'>Open</span> : <span className='closed'>Closed</span> } </h3>
-            <p>{restaurant.rating} <Rating rating={restaurant.rating} /> ({restaurant.user_ratings_total})</p>
+            <span>{restaurant.rating} <Rating rating={restaurant.rating} /> ({restaurant.user_ratings_total})</span>
+            <CustomImage src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
+&key=${key}`} alt='street view' />
             <p ><FaMapMarker /> {restaurant.vicinity}</p>
           </div>
           <div />
@@ -154,21 +165,3 @@ const RestaurantInfo = ({ restaurant }) => {
 
 export default RestaurantInfo
 
-/**
- *   const fetchStreetView = async () => {
-    try {
-      const api = new API({
-        resource: `streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
-&key=${key}`,
-        source: 'maps'
-      })
-      const response = await api.fetchData()
-      if(response.status === 200) {
-        console.log(response.status)
-        updateStreetView(response.data)
-      }
-    } catch (error) {
-      setError(error)
-    }
-  }
- */
