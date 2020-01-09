@@ -11,7 +11,7 @@ const RestaurantsDAO = require('../DAOs/Restaurants.DAO')
 
 class RestaurantController {
   /**
-   *
+   * validate inputs
    * @param req
    * @param res
    * @returns {Promise<void>}
@@ -21,7 +21,14 @@ class RestaurantController {
       const restaurantsDAO = new RestaurantsDAO('restaurants')
       const restaurant = await restaurantsDAO.addRestaurant({
         id: uuid(),
-        ...req.body
+        ...req.body,
+        timestamp: Date.now(),
+        geometry: {
+          location: {
+            lat: 1,
+            lng: 2
+          }
+        }
       })
       res.status(201).json({
         statusCode: 201,
@@ -84,8 +91,14 @@ class RestaurantController {
       const [state] = address_components.filter(component => {
         return component.types.includes('administrative_area_level_2')
       })
-
-      await restaurantsDAO.addRestaurants(results)
+      const updatedResults = results.map(result =>{
+        return {
+          ...result,
+          timestamp: Date.now()
+        }
+      })
+      // it should update existing entries instead of overwriting them
+      await restaurantsDAO.addRestaurants(updatedResults)
       const restaurants = await restaurantsDAO.getRestaurants(state.long_name)
       // console.log(restaurants)
 

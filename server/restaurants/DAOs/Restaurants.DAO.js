@@ -46,7 +46,7 @@ class RestaurantsDAO {
   async getRestaurants (location) {
     try {
       console.log(location)
-      const cursor = await this.dbReadInterface.find(location)
+      const cursor = await this.dbReadInterface.find(location).sort({ 'timestamp': -1})
       return await cursor.toArray()
     } catch (error) {
       return { error }
