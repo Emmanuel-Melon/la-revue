@@ -10,7 +10,7 @@ const Button = styled.button`
   color: gold;
   border-radius: 0.2em;
   font-size: 18px;
-  border: solid 0.1em rgb(91,9,172);
+  border: none;
   margin: 0.5em;
   
   &:hover {

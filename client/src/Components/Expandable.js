@@ -19,7 +19,6 @@ const Button = styled.button`
   padding: 8px;
   color: gold;
   font-size: 18px;
-  margin-bottom: 0.5em;
   
   &:hover, &:active {
     cursor: pointer;

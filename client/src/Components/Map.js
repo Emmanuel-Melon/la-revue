@@ -20,6 +20,7 @@ const getPixelPositionOffset = (width, height) => ({
   y: -(height/2),
 })
 
+// custom styles to make Overlay static
 const Map = ({ children }) => {
   useEffect(() => {
   }, [])
@@ -35,7 +36,6 @@ const Map = ({ children }) => {
               defaultCenter={{ lat: 0.32358400000000004, lng: 32.5935104 }}
               onClick={onMapClick}
             >
-
               <OverlayView
                 position={{ lat: 0.32358400000000004, lng: 32.5935104 }}
                 mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
