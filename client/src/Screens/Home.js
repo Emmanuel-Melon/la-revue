@@ -245,6 +245,7 @@ const HomeScreen = () => {
 
 // current view should only show AddRestaurant or RestaurantInfo but not both at the same time
 export const ContextConsumer = Consumer
+export const Context = HomeContext
 export default HomeScreen
 
 /**

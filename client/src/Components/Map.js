@@ -46,7 +46,7 @@ const Map = ({ children }) => {
               </OverlayView>
               {markers && markers.map(marker => {
                 const { id, location } = marker
-                return <Marker key={id} position={{ ...location }} />
+                return <Marker key={id} position={{ ...location }} onClick={() => console.log(`clicked marker ${id}`)} />
               })}
 
             </GoogleMap>

@@ -13,14 +13,13 @@ import Rating from './Ratings'
  */
 import styled from 'styled-components'
 const RestaurantCard = styled.article`
-  margin: 0.5em;
   background: #fff;
+  margin: 0.5em;
   padding: 0.5em;
   border-bottom: solid 0.2em rebeccapurple;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   overflow-wrap: break-word;
   transition: all .3s ease-in-out;
-  
+ 
   &:hover {
     cursor: pointer;
   }

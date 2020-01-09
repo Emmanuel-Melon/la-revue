@@ -47,3 +47,23 @@ footer {
   color: gold;
 }
 
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(67,27,84);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gold;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,9 +1,11 @@
 import React, {
   useEffect,
   useState,
+  useContext
 } from 'react'
 
-import { FaEdit, FaMapMarker } from 'react-icons/fa'
+import { FaEdit, FaMapMarker, FaWindowClose } from 'react-icons/fa'
+import { Context } from "../Screens/Home";
 
 import styled from 'styled-components'
 import CustomButton from './CustomButton'
@@ -11,6 +13,7 @@ import CustomImage from './CustomImage'
 import ReviewSummary from './ReviewSummary'
 import API from '../Utils/api'
 import Rating from './Ratings'
+
 
 const RestaurantView = styled.section`
   background: #ffffff;
@@ -32,6 +35,20 @@ const ResaurantActions = styled.div`
   flex-direction: column;
 `
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const Close = styled.span`
+  transition: all .3s ease-in-out;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+`
+
 const Input = styled.input`
   display: block;
   width: 95%;
@@ -50,6 +67,7 @@ const RestaurantInfo = ({ restaurant }) => {
   const [text, setText] = useState('')
   const [streetView, updateStreetView] = useState('')
 
+  const info = useContext(Context)
 
   const addReview = async () => {
     try {
@@ -122,7 +140,10 @@ const RestaurantInfo = ({ restaurant }) => {
       { !isLoading ? (
         <RestaurantView>
           <div>
-            <h3>{restaurant.name} { restaurant.opening_hours ? <span className='open'>Open</span> : <span className='closed'>Closed</span> } </h3>
+            <Header>
+              <h3>{restaurant.name} { restaurant.opening_hours ? <span className='open'>Open</span> : <span className='closed'>Closed</span> } </h3>
+              <Close><FaWindowClose onClick={info.closeModal}/></Close>
+            </Header>
             <span>{restaurant.rating} <Rating rating={restaurant.rating} /> ({restaurant.user_ratings_total})</span>
             <CustomImage src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
 &key=${key}`} alt='street view' />

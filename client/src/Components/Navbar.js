@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const Header = styled.header`
   background: rgb(67,27,84);
   background: linear-gradient(90deg, rgba(67,27,84,1) 0%, rgba(55,16,74,1) 54%, rgba(14,32,79,1) 90%);
-  padding: 0.5em;
+  padding: 0.1em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@ const Header = styled.header`
   border-bottom: solid 0.2em gold;
 `
 
-const Navbrand = styled.h3`
+const Navbrand = styled.p`
   color: gold;
   text-decoration: none;
 `
@@ -27,13 +27,11 @@ const Link = styled.li`
   margin: 0.5em;
   text-decoration: none;
   transition: all .4s ease-in-out;
-  padding: 8px;
   color: gold;
   border: solid 0.2em transparent;
   
   &:hover {
-    padding: 8px;
-    transform: scale(1.3);
+    transform: scale(1.0.1);
     cursor: pointer;
     color: #ffffff;
   }

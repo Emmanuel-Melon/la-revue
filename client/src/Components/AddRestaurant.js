@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus, FaWindowClose } from 'react-icons/fa'
 import CustomButton from './CustomButton'
 
 import { ContextConsumer } from '../Screens/Home'
 
 const Wrapper = styled.section`
-    background: #ffffff;
+  background: #ffffff;
   padding: 1.5em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border: solid 0.2em #37104a;
-  margin-top: 0.5em;
   max-width: 450px;
 `
 
@@ -32,8 +30,23 @@ const Error = styled.p`
   padding: 0.5em;
 `
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const Close = styled.span`
+  transition: all .3s ease-in-out;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+`
+
 const AddRestaurant = props => {
   const [name, setName] = useState('')
+  const [address, setAddress] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -60,24 +73,28 @@ const AddRestaurant = props => {
     }
   }
 
-  const handleInputChange = e => {
-    const { target: { value } } = e
-    setName(value)
-  }
-
   return (
     <ContextConsumer>
       { context => {
         // context is null
+        console.log(context.closeModal)
         return (
           <Wrapper>
-            <h3>Add Restaurant</h3>
-            <p>You have to reload the page in order for new restaurants to show :(</p>
+            <Header>
+              <h3>Add Restaurant</h3>
+              <Close><FaWindowClose onClick={context.closeModal}/></Close>
+            </Header>
             <Input
               type='text'
-              placeholder='restaurant name'
-              value={name} onChange={handleInputChange}
+              placeholder='Restaurant Name'
+              value={name} onChange={e => setName(e.target.value)}
               name='restaurant'
+            />
+            <Input
+              type='text'
+              placeholder='Address'
+              value={address} onChange={e => setAddress(e.target.value)}
+              name='address'
             />
             { successMessage === '' ? null : <Success>{successMessage}</Success> }
             { errorMessage === '' ? null : <Error>{errorMessage}</Error> }
