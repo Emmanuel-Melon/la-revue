@@ -1,12 +1,8 @@
-import React, {
-  createContext,
-  useEffect,
-  useState
-} from 'react'
+import React, {createContext, useEffect, useState} from 'react'
 
 import '../App.css'
-import { FaMapMarkerAlt, FaInfoCircle } from 'react-icons/fa'
-
+import {FaInfoCircle, FaMapMarkerAlt} from 'react-icons/fa'
+import uuid from 'uuid'
 /**
  * components
  */
@@ -15,36 +11,49 @@ import FilterComponent from '../Components/Filter'
 import ListRestaurants from '../Components/ListRestaurants'
 import RestaurantInfo from '../Components/RestaurantInfo'
 import AddRestaurant from '../Components/AddRestaurant'
-import NoData from '../Components/NoData'
+import Offline from './Offline'
 
+import Expandable, {Body, Header} from '../Components/Expandable'
 /**
  * utils
  */
 import API from '../Utils/api'
-
 /**
  * styles
  */
 import styled from 'styled-components'
+
 const MapWrapper = styled.section`
-  flex: 2;
+  overflow: hidden;
 `
 const Sidebar = styled.aside`
-  background-image: url("https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
-  background-size: contain;
-  background-attachment: scroll;
-  padding: 8px;
+  background: #ffffff;
   flex: 1;
-  overflow-y: scroll;
+  z-index: 1;
+  position: absolute;
+  top: 105px;
+  right: 60px;
+  max-width: 450px;
+ 
+`
+
+const Controls = styled.div`
+  z-index: 1;
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  max-width: 500px;
+  width: 500px;
 `
 
 const SidebarHead = styled.div`
   background: rgba(53, 15, 70, 0.85);
   padding: 8px;
   margin-bottom: 0.4em;
+  max-height: 600px;
 `
 
-const Header = styled.h1`
+const Heading = styled.h1`
   color: gold;
 `
 
@@ -53,7 +62,8 @@ const Text = styled.p`
 `
 
 const Wrapper = styled.main`
-  display: flex;
+  width: 100%;
+ 
 `
 
 const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
@@ -110,10 +120,20 @@ const HomeScreen = () => {
         resource: 'restaurants/add',
         source: 'base'
       })
+      console.log(restaurant)
       const response = await api.postData(restaurant)
       console.log(response.doc)
-      setRestaurants(restaurants)
+      setRestaurants(() => {
+        const updatedRestaurant = {
+          ...restaurant,
+          id: uuid()
+        }
+        const newRestaurants = restaurants.unshift(updatedRestaurant)
+        console.log(newRestaurants)
+        return restaurants
+      })
       setSuccessMessage('Restaurant Added')
+      setModalVisible(false)
     } catch (error) {
       setErrorMessage(error)
     }
@@ -143,6 +163,7 @@ const HomeScreen = () => {
       })
 
       // set hooks data
+      console.log(restaurants)
       setRestaurants(restaurants)
       setCity(state)
       setCountry(country)
@@ -159,10 +180,6 @@ const HomeScreen = () => {
 
   console.log(restaurants)
 
-  if(hasError) {
-    return <h3>Failed to load</h3>
-  }
-
   const updateRestaurants = (min, max) => {
     console.log('updating restaurants')
     console.log(restaurants)
@@ -176,6 +193,7 @@ const HomeScreen = () => {
     setCoords(newCoords)
   }
 
+  if(hasError) return <Offline />
   return (
     <Provider value={{
       location,
@@ -196,41 +214,55 @@ const HomeScreen = () => {
       lng
     }}>
       <Wrapper>
-        <MapWrapper>
+        <MapWrapper style={{ height: `100vh`, overflow: 'hidden' }}>
           <OverlayedMap
             isMarkerShown
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}`}
-            loadingElement={<div style={{ height: `100%` }} />}
+            loadingElement={<div style={{ height: `100vh` }} />}
             containerElement={<div style={{ height: `100vh` }} />}
-            mapElement={<div style={{ height: `100%` }} />}
-          >
-            <div>
+            mapElement={<div style={{ height: `100vh` }} />}
+          />
+          <div>
+            <Controls>
+
+              { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
               <RestaurantInfo
                 city={city}
                 country={country}
                 restaurant={selectedRestaurant}
               />
-              { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
-            </div>
-          </OverlayedMap>
-        </MapWrapper>
-        <Sidebar>
+
+            </Controls>
+            <Sidebar>
               <div>
                 <SidebarHead>
-                  <Header><FaMapMarkerAlt /> {city.long_name}, {country.short_name}.</Header>
-                  <Text><FaInfoCircle /> Click on the Map to add a new restaurant.</Text>
-                  <Text><FaInfoCircle /> Click on a restaurant to view its details.</Text>
+                  <Heading><FaMapMarkerAlt /> {city.long_name}, {country.short_name}</Heading>
+                  <Text><FaInfoCircle /> Click on map to add new restaurant</Text>
                 </SidebarHead>
-                <FilterComponent />
                 <ListRestaurants
                   restaurants={restaurants}
                 />
               </div>
-        </Sidebar>
+            </Sidebar>
+          </div>
+        </MapWrapper>
       </Wrapper>
     </Provider>
   )
 }
 
+
+// current view should only show AddRestaurant or RestaurantInfo but not both at the same time
 export const ContextConsumer = Consumer
 export default HomeScreen
+
+/**
+ *           <div>
+ <RestaurantInfo
+ city={city}
+ country={country}
+ restaurant={selectedRestaurant}
+ />
+ { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
+ </div>
+ */
