@@ -53,7 +53,6 @@ const Controls = styled.div`
 const SidebarHead = styled.div`
   background: rgba(53, 15, 70, 0.85);
   padding: 8px;
-  margin-bottom: 0.4em;
   max-height: 600px;
 `
 
@@ -218,7 +217,6 @@ const HomeScreen = () => {
             <Controls>
 
               { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
-              <FilterComponent />
               <RestaurantInfo
                 city={city}
                 country={country}
@@ -231,6 +229,7 @@ const HomeScreen = () => {
                   <Heading><FaMapMarkerAlt /> {city.long_name}, {country.short_name}</Heading>
                   <Text><FaInfoCircle /> Click on map to add new restaurant</Text>
                 </SidebarHead>
+                <FilterComponent />
                 <ListRestaurants
                   restaurants={restaurants}
                 />
@@ -243,18 +242,6 @@ const HomeScreen = () => {
   )
 }
 
-// current view should only show AddRestaurant or RestaurantInfo but not both at the same time
 export const ContextConsumer = Consumer
 export const Context = HomeContext
 export default HomeScreen
-
-/**
- *           <div>
- <RestaurantInfo
- city={city}
- country={country}
- restaurant={selectedRestaurant}
- />
- { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
- </div>
- */
