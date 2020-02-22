@@ -10,13 +10,12 @@ const {
   MONGO_USER
 } = process.env
 
-const url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/test?retryWrites=true&w=majority`
+const url = `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DATABASE}?retryWrites=true&w=majority`
 /**
  *
  * @constructor
  */
 const MongoDBService = function () {
-  this.name = MONGO_DATABASE
   this.url = url
   this.options = {
     useUnifiedTopology: true,
@@ -24,25 +23,31 @@ const MongoDBService = function () {
   }
 }
 
+// kfrNtOj2yySsGi3e
+
 /**
  *
  * @return {Promise<{conn: MongoClient, error: null, db: *}|{conn: null, error: *}>}
  */
 MongoDBService.prototype.connect = async function () {
   try {
+
     const client = new MongoClient(this.url, this.options)
+    console.log(this.url)
     /**
      *
      * @type {MongoClient}
      */
+
     const conn = await client.connect()
-    const db = client.db(this.name)
+    const db = client.db(MONGO_DATABASE)
     return ({
       conn,
       db,
       error: null
     })
   } catch (error) {
+    console.log('damn son')
     return ({
       conn: null,
       error

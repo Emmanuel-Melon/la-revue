@@ -3,8 +3,9 @@ const { ObjectID } = require('mongodb')
  * @description injects the currently running MongoDB instance into DB interfacing classes
  */
 class DBProvider {
-  static injectDB (conn) {
-    DBProvider.db = conn
+  static injectDB (db) {
+    console.log(db)
+    DBProvider.db = db
   }
 
   static returnDB () {

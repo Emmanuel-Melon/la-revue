@@ -100,6 +100,8 @@ class RestaurantController {
       // it should update existing entries instead of overwriting them
       await restaurantsDAO.addRestaurants(updatedResults)
       const restaurants = await restaurantsDAO.getRestaurants(state.long_name)
+
+      // console.log(restaurants)
       res.status(201).json({
         message: 'OK',
         statusCode: 201,
