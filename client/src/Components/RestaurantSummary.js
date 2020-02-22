@@ -107,9 +107,10 @@ const RestaurantSummary = (props) => {
       </RestaurantInfo>
       <TagsArea>
         {
+          restaurant.types ?
           restaurant.types.map(type => {
             return <Tag key={restaurant.types.indexOf(type)}>{type}</Tag>
-          })
+          }) : null
         }
       </TagsArea>
       <RestaurantAction>

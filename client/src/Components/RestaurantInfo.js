@@ -14,6 +14,7 @@ import ReviewSummary from './ReviewSummary'
 import API from '../Utils/api'
 import Rating from './Ratings'
 
+import uuid from "uuid"
 
 const RestaurantView = styled.section`
   background: #ffffff;
@@ -79,7 +80,8 @@ const RestaurantInfo = ({ restaurant }) => {
       const review = {
         text,
         restaurantId: id,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        id: uuid()
       }
       const response = await api.postData(review)
       setText('')
@@ -145,8 +147,10 @@ const RestaurantInfo = ({ restaurant }) => {
               <Close><FaWindowClose onClick={info.closeModal}/></Close>
             </Header>
             <span>{restaurant.rating} <Rating rating={restaurant.rating} /> ({restaurant.user_ratings_total})</span>
-            <CustomImage src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
+            <figure>
+              <CustomImage src={`https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${restaurant.geometry.location.lat},${restaurant.geometry.location.lng}&fov=80&heading=70&pitch=0
 &key=${key}`} alt='street view' />
+            </figure>
             <p ><FaMapMarker /> {restaurant.vicinity}</p>
           </div>
           <div />
@@ -168,7 +172,7 @@ const RestaurantInfo = ({ restaurant }) => {
                 </div>
               ) : (
                 reviews.map(review => {
-                  return <ReviewSummary review={{ ...review }} key={review._id} />
+                  return <ReviewSummary review={{ ...review }} key={review.id} />
                 })
               )
             }

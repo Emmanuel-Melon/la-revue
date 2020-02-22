@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { FaPlus, FaWindowClose } from 'react-icons/fa'
 import CustomButton from './CustomButton'
 
 import { ContextConsumer } from '../Screens/Home'
+import { Context } from '../Screens/Home'
 
 const Wrapper = styled.section`
   background: #ffffff;
@@ -50,8 +51,16 @@ const AddRestaurant = props => {
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
+  // context values
+  const { location, lat, lng, setCoords, markers } = useContext(Context)
+  console.log(location)
+  console.log(lat)
+  console.log(lng)
+
   const addRestaurant = async (e) => {
     try {
+
+      console.log(location)
       // create a new restaurant
       const restaurant = {
         name,
@@ -63,11 +72,21 @@ const AddRestaurant = props => {
           'establishment'
         ],
         vicinity: 'Kampala',
-        rating: 5
+        rating: 5,
+        geometry: {
+          location: {
+            lat,
+            lng
+          }
+        }
       }
       await props.addRestaurant(restaurant)
       setName('')
       setSuccessMessage('Restaurant Added')
+      setCoords([{
+        location: restaurant.geometry.location,
+        id: restaurant.id,
+      }, markers])
     } catch (error) {
       setErrorMessage(error)
     }
@@ -77,6 +96,7 @@ const AddRestaurant = props => {
     <ContextConsumer>
       { context => {
         // context is null
+        console.log(context)
         console.log(context.closeModal)
         return (
           <Wrapper>
