@@ -1,18 +1,18 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, {createContext, useEffect, useReducer, useState, Fragment} from 'react'
 
 import '../App.css'
-import { FaInfoCircle, FaMapMarkerAlt } from 'react-icons/fa'
+import {FaInfoCircle, FaMapMarkerAlt} from 'react-icons/fa'
 import uuid from 'uuid'
 /**
  * components
  */
+
 import OverlayedMap from '../Components/Map'
 import FilterComponent from '../Components/Filter'
 import ListRestaurants from '../Components/ListRestaurants'
 import RestaurantInfo from '../Components/RestaurantInfo'
 import AddRestaurant from '../Components/AddRestaurant'
 import Offline from './Offline'
-
 // import Expandable, {Body, Header} from '../Components/Expandable'
 /**
  * utils
@@ -66,7 +66,6 @@ const Text = styled.p`
 
 const Wrapper = styled.main`
   width: 100%;
- 
 `
 
 const key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
@@ -81,6 +80,7 @@ const HomeScreen = () => {
   /**
    * hooks
    */
+  // sets the OG restaurants thing
   const [restaurants, setRestaurants] = useState([])
   const [selectedRestaurant, setSelectedRestaurant] = useState({})
   const [city, setCity] = useState({})
@@ -95,15 +95,22 @@ const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [min, updateMin] = useState(1)
-  const [max, updateMax] = useState(4)
   const [lat, updateLat] = useState(0)
   const [lng, updateLng] = useState(0)
+  const [filter, setFilter] = useState(false)
+  const [filtered, setFiltered] = useState([])
+
 
   const onOverlayClick = e => {
+    console.log(e)
+    console.log('here')
     setModalVisible(true)
   }
+
   const onMapClick = e => {
+    console.log(e)
+    console.log(e.latLng)
+    console.log('amazing')
     updateLat(e.latLng.lat())
     updateLng(e.latLng.lng())
     setModalVisible(true)
@@ -120,22 +127,28 @@ const HomeScreen = () => {
         source: 'base'
       })
       const response = await api.postData(restaurant)
-      setRestaurants(() => {
+
         const updatedRestaurant = {
           ...restaurant,
           id: uuid()
         }
-        const newRestaurants = restaurants.unshift(updatedRestaurant)
-        return newRestaurants
-      })
+        console.log(restaurants)
+        console.log(filter)
+        // array.unshift
+        // const newRestaurants = restaurants.unshift(updatedRestaurant)
+        // console.log(newRestaurants)
+        // setRestaurants([newRestaurants, ...restaurants])
+
       setSuccessMessage('Restaurant Added')
       setModalVisible(false)
+      // didn't call?
+      setRestaurants([updatedRestaurant, ...restaurants])
     } catch (error) {
       setErrorMessage(error)
     }
   }
 
-  const apiCall = async (options) => {
+  const apiCall = async (options = {}) => {
     try {
       const api = new API({
         resource: '/restaurants',
@@ -148,6 +161,7 @@ const HomeScreen = () => {
        * @type {*|*}
        */
       setMapLoading(true)
+      // what is geolocation returning?
       const geolocation = await api.customPost(`https://www.googleapis.com/geolocation/v1/geolocate?key=${key}`)
       setMapLoading(false)
       const { data: { location } } = geolocation
@@ -157,6 +171,8 @@ const HomeScreen = () => {
         type,
         location
       })
+
+      console.log(coords)
 
       // set hooks data
       setRestaurants(restaurants)
@@ -169,17 +185,60 @@ const HomeScreen = () => {
     }
   }
 
+  // does placing this above or below affect anything?
   useEffect(() => {
     apiCall()
   }, [])
 
-  const updateRestaurants = (min, max) => {
-    const updatedRestaurants = restaurants.filter(restaurant => {
-      return restaurant.rating >= min && restaurant.rating <= max
-    })
-    setRestaurants(updatedRestaurants)
-    const newCoords = updatedRestaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
-    setCoords(newCoords)
+  function reducer (state, action) {
+    switch (action.type) {
+      case 'increment':
+      {
+        // what state are we giving to this reducer?
+
+        console.log(`decrementing by: ${action.payload.max}`)
+        setFilter(true)
+        //
+        const updatedRestaurants = restaurants.filter(restaurant => {
+          return restaurant.rating >= action.payload.min && restaurant.rating <= action.payload.max
+        })
+
+        //
+        const newCoords = updatedRestaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
+        setCoords(newCoords)
+        setFiltered(updatedRestaurants)
+        // am I supposed to return or set state?
+        return updatedRestaurants
+      }
+      case 'decrement':
+      {
+        const updatedRestaurants = restaurants.filter(restaurant => {
+          // min or action.payload?
+          return restaurant.rating >= action.payload.min && restaurant.rating <= action.payload.max
+        })
+        setFilter(true)
+
+        const newCoords = updatedRestaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
+        setCoords(newCoords)
+        setFiltered(updatedRestaurants)
+        return updatedRestaurants
+      }
+      default:
+        setFilter(false)
+        return restaurants
+    }
+  }
+
+  const [filteredRestaurants, setFilteredRestaurants] = useReducer(reducer, restaurants);
+
+
+  const updateRestaurants = (restaurants) => {
+
+      setRestaurants(restaurants)
+    // you'll really need this newCoords array
+      const newCoords = restaurants.map(restaurant => ({ location: restaurant.geometry.location, id: restaurant.id }))
+      setCoords(newCoords)
+
   }
 
   if (hasError) return <Offline />
@@ -196,9 +255,8 @@ const HomeScreen = () => {
       city,
       onOverlayClick,
       addRestaurant,
-      updateRestaurants,
-      min,
-      max,
+      updateRestaurants: setFilteredRestaurants,
+      setCoords,
       lat,
       lng
     }}>
@@ -213,9 +271,8 @@ const HomeScreen = () => {
           >
             <h3 style={{ display: 'none' }}>Hello</h3>
           </OverlayedMap>
-          <div>
+          <Fragment>
             <Controls>
-
               { modalVisible ? <AddRestaurant addRestaurant={addRestaurant} /> : null }
               <RestaurantInfo
                 city={city}
@@ -224,18 +281,20 @@ const HomeScreen = () => {
               />
             </Controls>
             <Sidebar>
-              <div>
+              <Fragment>
                 <SidebarHead>
-                  <Heading><FaMapMarkerAlt /> {city.long_name}, {country.short_name}</Heading>
+                  <Heading><FaMapMarkerAlt /> {city ? city.long_name : "Your City" }, {country ? country.short_name : "Country" }</Heading>
                   <Text><FaInfoCircle /> Click on map to add new restaurant</Text>
                 </SidebarHead>
-                <FilterComponent />
-                <ListRestaurants
-                  restaurants={restaurants}
-                />
-              </div>
+                <FilterComponent restaurants={restaurants} />
+                {
+                  filter ? (<ListRestaurants restaurants={filtered} />) : (
+                    <ListRestaurants restaurants={restaurants} />
+                  )
+                }
+              </Fragment>
             </Sidebar>
-          </div>
+          </Fragment>
         </MapWrapper>
       </Wrapper>
     </Provider>

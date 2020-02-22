@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useReducer, useEffect } from 'react'
 
 /**
  * components
@@ -49,20 +49,28 @@ const FilterInput = styled.input`
  * @returns {*}
  * @constructor
  */
-const FilterRestaurants = () => {
+const FilterRestaurants = ({ restaurants }) => {
+
   const [min, updateMin] = useState(1)
   const [max, updateMax] = useState(5)
 
   const { updateRestaurants } = useContext(Context)
 
   const handleMaxChange = e => {
+    updateRestaurants({type: 'increment', payload: {
+        min,
+        max: e.target.value
+      }})
     updateMax(e.target.value)
-    updateRestaurants(min, max)
   }
 
+
   const handleMinChange = e => {
+    updateRestaurants({ type: 'decrement', payload: {
+      min: e.target.value,
+        max
+      } })
     updateMin(e.target.value)
-    updateRestaurants(min, max)
   }
 
   return (
@@ -75,9 +83,9 @@ const FilterRestaurants = () => {
         <Filter>
           <FilterBody>
             <label><FaArrowDown/> Min</label>
-            <FilterInput type='number' id="min" onChange={handleMinChange} value={min} placeholder='Min 1' max={5} />
+            <FilterInput type='number' id="min" onChange={handleMinChange} value={min} placeholder='Min 1' min="0" max="5" />
             <label><FaArrowUp/> Max</label>
-            <FilterInput type='number' id="max" onChange={handleMaxChange} value={max} placeholder='Max 5' max={5} />
+            <FilterInput type='number' id="max" onChange={handleMaxChange} value={max} placeholder='Max 5' min="0" max="5" />
           </FilterBody>
         </Filter>
       </Body>
